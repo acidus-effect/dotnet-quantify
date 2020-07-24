@@ -1,21 +1,20 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Quantify.IntegrationTest.Quantity.Assets;
-using Quantify.UnitTest.Shared;
-using System;
+using Quantify.IntegrationTests.Quantity.Assets;
+using Quantify.Test.Assets;
 
-namespace Quantify.IntegrationTest.Quantity
+namespace Quantify.IntegrationTests.Quantity
 {
     [TestClass]
     public class QuantityAdditionTests
     {
         [TestMethod]
-        public void WHEN_Adding_QuantityToQuantity_GIVEN_BothQuantitiesPositive_THEN_ReturnSum()
+        public void WHILE_BothQuantitiesArePositive_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
         {
             // Arrange
-            var quantity1 = EnumTestQuantity.Create(22, TestUnit.Decimetre);
-            var quantity2 = EnumTestQuantity.Create(12, TestUnit.Metre);
+            var quantity1 = TestQuantity.Create(22, TestData.Decimetre);
+            var quantity2 = TestQuantity.Create(12, TestData.Metre);
 
-            var expectedQuantity = EnumTestQuantity.Create(142, TestUnit.Decimetre);
+            var expectedQuantity = TestQuantity.Create(142, TestData.Decimetre);
 
             // Act
             var actualQuantity = quantity1.Add(quantity2);
@@ -25,13 +24,13 @@ namespace Quantify.IntegrationTest.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Adding_QuantityToQuantity_GIVEN_BothQuantitiesNegative_THEN_ReturnSum()
+        public void WHILE_BothQuantitiesAreNegative_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
         {
             // Arrange
-            var quantity1 = EnumTestQuantity.Create(-52, TestUnit.Millimetre);
-            var quantity2 = EnumTestQuantity.Create(-523, TestUnit.Centimetre);
+            var quantity1 = TestQuantity.Create(-52, TestData.Millimetre);
+            var quantity2 = TestQuantity.Create(-523, TestData.Centimetre);
 
-            var expectedQuantity = EnumTestQuantity.Create(-5282, TestUnit.Millimetre);
+            var expectedQuantity = TestQuantity.Create(-5282, TestData.Millimetre);
 
             // Act
             var actualQuantity = quantity1.Add(quantity2);
@@ -41,13 +40,13 @@ namespace Quantify.IntegrationTest.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Adding_QuantityToQuantity_GIVEN_PositiveAndNegativeQuntity_THEN_ReturnSum()
+        public void WHILE_FirstQuantityIsPositive_SecondQuantityIsNegative_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
         {
             // Arrange
-            var quantity1 = EnumTestQuantity.Create(84, TestUnit.Kilometre);
-            var quantity2 = EnumTestQuantity.Create(-852, TestUnit.Metre);
+            var quantity1 = TestQuantity.Create(84, TestData.Kilometre);
+            var quantity2 = TestQuantity.Create(-852, TestData.Metre);
 
-            var expectedQuantity = EnumTestQuantity.Create(83.148, TestUnit.Kilometre);
+            var expectedQuantity = TestQuantity.Create(83.148, TestData.Kilometre);
 
             // Act
             var actualQuantity = quantity1.Add(quantity2);
@@ -57,13 +56,13 @@ namespace Quantify.IntegrationTest.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Adding_QuantityToQuantity_GIVEN_NegativeAndPositiveQuntity_THEN_ReturnSum()
+        public void WHILE_FirstQuantityIsNegative_SecondQuantityIsPositive_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
         {
             // Arrange
-            var quantity1 = EnumTestQuantity.Create(-36, TestUnit.Metre);
-            var quantity2 = EnumTestQuantity.Create(3700, TestUnit.Centimetre);
+            var quantity1 = TestQuantity.Create(-36, TestData.Metre);
+            var quantity2 = TestQuantity.Create(3700, TestData.Centimetre);
 
-            var expectedQuantity = EnumTestQuantity.Create(1, TestUnit.Metre);
+            var expectedQuantity = TestQuantity.Create(1, TestData.Metre);
 
             // Act
             var actualQuantity = quantity1.Add(quantity2);
@@ -73,30 +72,13 @@ namespace Quantify.IntegrationTest.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Adding_QuantityToQuantity_GIVEN_Null_THEN_ThrowArgumentNullException()
+        public void WHILE_ArgumentIsNull_WHEN_Adding_QuantityToQuantity_THEN_ThrowException()
         {
             // Arrange
-            var quantity1 = EnumTestQuantity.Create(22, TestUnit.Decimetre);
-            EnumTestQuantity quantity2 = null;
+            var quantity = TestQuantity.Create(22, TestData.Decimetre);
 
-            try
-            {
-                // Act
-                var actualQuantity = quantity1.Add(quantity2);
-
-                //Assert
-                Assert.IsTrue(false, $"Expected exception of type '{typeof(ArgumentNullException).FullName}' to be thrown.");
-            }
-            catch (ArgumentNullException exception)
-            {
-                //Assert
-                Assert.IsTrue(true);
-            }
-            catch (Exception exception)
-            {
-                //Assert
-                Assert.IsTrue(false, $"Unexpected exception of type '{exception.GetType().FullName}' was thrown. Expected exception of type '{typeof(ArgumentNullException).FullName}'.");
-            }
+            // Act & Assert
+            ExceptionHelpers.ExpectArgumentNullException("quantity", () => quantity.Add(null));
         }
     }
 }
