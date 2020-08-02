@@ -14,7 +14,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("-11.112", "-2.365444")]
         [DataRow("0", "2.321")]
         [DataRow("0", "-5.68749")]
-        public void WHILE_DividendIsDecimal_DivisorIsDecimal_WHEN_Dividing_THEN_ReturnQuotient(string dividendString, string divisorString)
+        public void WHEN_Dividing_WHILE_DividendIsDecimal_DivisorIsDecimal_THEN_ReturnQuotient(string dividendString, string divisorString)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -35,7 +35,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("25.458")]
         [DataRow("-26.456")]
         [DataRow("0")]
-        public void WHILE_DividendIsDecimal_DivisorIsDecimal_DivisorIsZero_WHEN_Dividing_THEN_ThrowException(string dividendString)
+        public void WHEN_Dividing_WHILE_DividendIsDecimal_DivisorIsDecimal_DivisorIsZero_THEN_ThrowException(string dividendString)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -54,7 +54,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("-11.112", -2)]
         [DataRow("0", 2)]
         [DataRow("0", -5)]
-        public void WHILE_DividendIsDecimal_DivisorIsInteger_WHEN_Dividing_THEN_ReturnQuotient(string dividendString, int divisor)
+        public void WHEN_Dividing_WHILE_DividendIsDecimal_DivisorIsInteger_THEN_ReturnQuotient(string dividendString, int divisor)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -74,7 +74,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("25.458")]
         [DataRow("-26.456")]
         [DataRow("0")]
-        public void WHILE_DividendIsDecimal_DivisorIsInteger_DivisorIsZero_WHEN_Dividing_THEN_ThrowException(string dividendString)
+        public void WHEN_Dividing_WHILE_DividendIsDecimal_DivisorIsInteger_DivisorIsZero_THEN_ThrowException(string dividendString)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -93,7 +93,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(-11.112, -2.365444)]
         [DataRow(0, 2.321)]
         [DataRow(0, -5.68749)]
-        public void WHILE_DividendIsDouble_DivisorIsDouble_WHEN_Dividing_THEN_ReturnQuotient(double dividend, double divisor)
+        public void WHEN_Dividing_WHILE_DividendIsDouble_DivisorIsDouble_THEN_ReturnQuotient(double dividend, double divisor)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();
@@ -111,7 +111,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(25.458)]
         [DataRow(-26.456)]
         [DataRow(0)]
-        public void WHILE_DividendIsDecimal_DivisorIsDecimal_DivisorIsZero_WHEN_Dividing_THEN_ThrowException(double dividend)
+        public void WHEN_Dividing_WHILE_DividendIsDecimal_DivisorIsDecimal_DivisorIsZero_THEN_ThrowException(double dividend)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();
@@ -129,7 +129,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(-11.112, -2)]
         [DataRow(0, 2)]
         [DataRow(0, -5)]
-        public void WHILE_DividendIsDouble_DivisorIsInteger_WHEN_Dividing_THEN_ReturnQuotient(double dividend, int divisor)
+        public void WHEN_Dividing_WHILE_DividendIsDouble_DivisorIsInteger_THEN_ReturnQuotient(double dividend, int divisor)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();
@@ -147,7 +147,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(25.458)]
         [DataRow(-26.456)]
         [DataRow(0)]
-        public void WHILE_DividendIsDecimal_DivisorIsInteger_DivisorIsZero_WHEN_Dividing_THEN_ThrowException(double dividend)
+        public void WHEN_Dividing_WHILE_DividendIsDecimal_DivisorIsInteger_DivisorIsZero_THEN_ThrowException(double dividend)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();

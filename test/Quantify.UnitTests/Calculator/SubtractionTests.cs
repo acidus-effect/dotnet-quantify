@@ -15,7 +15,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("0", "2.321")]
         [DataRow("0", "-5.68749")]
         [DataRow("0", "0")]
-        public void WHILE_MinuendIsDecimal_SubtrahendIsDecimal_WHEN_Subtracting_THEN_ReturnDifference(string minuendString, string subtrahendString)
+        public void WHEN_Subtracting_WHILE_MinuendIsDecimal_SubtrahendIsDecimal_THEN_ReturnDifference(string minuendString, string subtrahendString)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -42,7 +42,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("0", 2)]
         [DataRow("0", -5)]
         [DataRow("0", 0)]
-        public void WHILE_MinuendIsDecimal_SubtrahendIsInteger_WHEN_Subtracting_THEN_ReturnDifference(string minuendString, int subtrahend)
+        public void WHEN_Subtracting_WHILE_MinuendIsDecimal_SubtrahendIsInteger_THEN_ReturnDifference(string minuendString, int subtrahend)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -68,7 +68,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(0, 2.321)]
         [DataRow(0, -5.68749)]
         [DataRow(0, 0)]
-        public void WHILE_MinuendIsDouble_SubtrahendIsDouble_WHEN_Subtracting_THEN_ReturnDifference(double minuend, double subtrahend)
+        public void WHEN_Subtracting_WHILE_MinuendIsDouble_SubtrahendIsDouble_THEN_ReturnDifference(double minuend, double subtrahend)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();
@@ -92,7 +92,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(0, 2)]
         [DataRow(0, -5)]
         [DataRow(0, 0)]
-        public void WHILE_MinuendIsDouble_SubtrahendIsInteger_WHEN_Subtracting_THEN_ReturnDifference(double minuend, int subtrahend)
+        public void WHEN_Subtracting_WHILE_MinuendIsDouble_SubtrahendIsInteger_THEN_ReturnDifference(double minuend, int subtrahend)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();

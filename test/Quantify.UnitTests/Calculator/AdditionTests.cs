@@ -15,7 +15,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("0", "2.321")]
         [DataRow("0", "-5.68749")]
         [DataRow("0", "0")]
-        public void WHILE_FirstTermIsDecimal_SecondTermIsDecimal_WHEN_Adding_THEN_ReturnSum(string term1String, string term2String)
+        public void WHEN_Adding_WHILE_FirstTermIsDecimal_SecondTermIsDecimal_THEN_ReturnSum(string term1String, string term2String)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -42,7 +42,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("0", 2)]
         [DataRow("0", -5)]
         [DataRow("0", 0)]
-        public void WHILE_FirstTermIsDecimal_SecondTermIsInteger_WHEN_Adding_THEN_ReturnSum(string term1String, int term2)
+        public void WHEN_Adding_WHILE_FirstTermIsDecimal_SecondTermIsInteger_THEN_ReturnSum(string term1String, int term2)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -68,7 +68,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(0, 2.321)]
         [DataRow(0, -5.68749)]
         [DataRow(0, 0)]
-        public void WHILE_FirstTermIsDouble_SecondTermIsDouble_WHEN_Adding_THEN_ReturnSum(double term1, double term2)
+        public void WHEN_Adding_WHILE_FirstTermIsDouble_SecondTermIsDouble_THEN_ReturnSum(double term1, double term2)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();
@@ -92,7 +92,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(0, 2)]
         [DataRow(0, -5)]
         [DataRow(0, 0)]
-        public void WHILE_FirstTermIsDouble_SecondTermIsInteger_WHEN_Adding_THEN_ReturnSum(double term1, int term2)
+        public void WHEN_Adding_WHILE_FirstTermIsDouble_SecondTermIsInteger_THEN_ReturnSum(double term1, int term2)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();

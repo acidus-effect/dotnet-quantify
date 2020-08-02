@@ -15,7 +15,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("0", "2.321")]
         [DataRow("0", "-5.68749")]
         [DataRow("0", "0")]
-        public void WHILE_MultiplicandIsDecimal_MultiplierIsDecimal_WHEN_Multiplying_THEN_ReturnProduct(string multiplicandString, string multiplierString)
+        public void WHEN_Multiplying_WHILE_MultiplicandIsDecimal_MultiplierIsDecimal_THEN_ReturnProduct(string multiplicandString, string multiplierString)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -42,7 +42,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow("0", 2)]
         [DataRow("0", -5)]
         [DataRow("0", 0)]
-        public void WHILE_MultiplicandIsDecimal_MultiplierIsInteger_WHEN_Multiplying_THEN_ReturnProduct(string multiplicandString, int multiplier)
+        public void WHEN_Multiplying_WHILE_MultiplicandIsDecimal_MultiplierIsInteger_THEN_ReturnProduct(string multiplicandString, int multiplier)
         {
             // Arrange
             var valueCalculator = new DecimalValueCalculator();
@@ -68,7 +68,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(0, 2.321)]
         [DataRow(0, -5.68749)]
         [DataRow(0, 0)]
-        public void WHILE_MultiplicandIsDouble_MultiplierIsDouble_WHEN_Multiplying_THEN_ReturnProduct(double multiplicand, double multiplier)
+        public void WHEN_Multiplying_WHILE_MultiplicandIsDouble_MultiplierIsDouble_THEN_ReturnProduct(double multiplicand, double multiplier)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();
@@ -92,7 +92,7 @@ namespace Quantify.UnitTests.Calculator
         [DataRow(0, 2)]
         [DataRow(0, -5)]
         [DataRow(0, 0)]
-        public void WHILE_MultiplicandIsDouble_MultiplierIsInteger_WHEN_Multiplying_THEN_ReturnProduct(double multiplicand, int multiplier)
+        public void WHEN_Multiplying_WHILE_MultiplicandIsDouble_MultiplierIsInteger_THEN_ReturnProduct(double multiplicand, int multiplier)
         {
             // Arrange
             var valueCalculator = new DoubleValueCalculator();

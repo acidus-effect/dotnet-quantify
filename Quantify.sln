@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Test.runsettings = Test.runsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantify.IntegrationTests", "test\Quantify.IntegrationTests\Quantify.IntegrationTests.csproj", "{F918D623-5B97-40BE-940A-E0C3C654A6BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify.IntegrationTests", "test\Quantify.IntegrationTests\Quantify.IntegrationTests.csproj", "{F918D623-5B97-40BE-940A-E0C3C654A6BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify.Test.Assets", "test\Quantify.Test.Assets\Quantify.Test.Assets.csproj", "{F8EF4501-D4CE-4AF0-B480-2A8AEB8511AD}"
 EndProject

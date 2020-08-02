@@ -8,7 +8,7 @@ namespace Quantify.UnitTests.Converters
     public class ValueConverterTests
     {
         [TestMethod]
-        public void WHILE_ArgumentIsNull_WHEN_Instantiating_THEN_ThrowException()
+        public void WHEN_Instantiating_WHILE_ArgumentIsNull_THEN_ThrowException()
         {
             // Arrange
             UnitRepository<double, string> unitRepository = new Mock<UnitRepository<double, string>>().Object;
@@ -20,7 +20,7 @@ namespace Quantify.UnitTests.Converters
         }
 
         [TestMethod]
-        public void WHILE_SourceAndTargetUnitsAreEqual_WHEN_ConvertingValue_THEN_ReturnSameValue()
+        public void WHEN_ConvertingValue_WHILE_SourceAndTargetUnitsAreEqual_THEN_ReturnSameValue()
         {
             // Arrange
             const double sourceValue = 42.52;
@@ -37,7 +37,7 @@ namespace Quantify.UnitTests.Converters
         }
 
         [TestMethod]
-        public void WHILE_SourceAndTargetUnitsAreDifferent_WHEN_ConvertingValue_THEN_ReturnConvertedValue()
+        public void WHEN_ConvertingValue_WHILE_SourceAndTargetUnitsAreDifferent_THEN_ReturnConvertedValue()
         {
             // Arrange
             const double sourceValue = 12.3456789;

@@ -7,7 +7,7 @@ namespace Quantify.UnitTests.Exceptions
     public class GenericArgumentExceptionTests
     {
         [TestMethod]
-        public void WHILE_MessageIsNull_WHEN_Instantiating_Message_ArgumentName_ArgumentType_THEN_HasDefaultMessage()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_MessageIsNull_THEN_HasDefaultMessage()
         {
             // Arrange
             const string message = null;
@@ -25,7 +25,7 @@ namespace Quantify.UnitTests.Exceptions
         }
 
         [TestMethod]
-        public void WHILE_ArgumentNameIsNull_WHEN_Instantiating_Message_ArgumentName_ArgumentType_THEN_ArgumentNameIsNull()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_ArgumentNameIsNull_THEN_ArgumentNameIsNull()
         {
             // Arrange
             const string expectedMessage = "Some exception message";
@@ -42,7 +42,7 @@ namespace Quantify.UnitTests.Exceptions
         }
 
         [TestMethod]
-        public void WHILE_ArgumentTypeIsNull_WHEN_Instantiating_Message_ArgumentName_ArgumentType_THEN_ArgumentTypeIsNull()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_ArgumentTypeIsNull_THEN_ArgumentTypeIsNull()
         {
             // Arrange
             const string expectedMessage = "Some exception message";
@@ -59,7 +59,7 @@ namespace Quantify.UnitTests.Exceptions
         }
 
         [TestMethod]
-        public void WHILE_MessageIsNull_WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_THEN_HasDefaultMessage()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_MessageIsNull_THEN_HasDefaultMessage()
         {
             // Arrange
             const string message = null;
@@ -79,7 +79,7 @@ namespace Quantify.UnitTests.Exceptions
         }
 
         [TestMethod]
-        public void WHILE_ArgumentNameIsNull_WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_THEN_ArgumentNameIsNull()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_ArgumentNameIsNull_THEN_ArgumentNameIsNull()
         {
             // Arrange
             const string expectedMessage = "Some exception message";
@@ -98,7 +98,7 @@ namespace Quantify.UnitTests.Exceptions
         }
 
         [TestMethod]
-        public void WHILE_ArgumentTypeIsNull_WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_THEN_ArgumentTypeIsNull()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_ArgumentTypeIsNull_THEN_ArgumentTypeIsNull()
         {
             // Arrange
             const string expectedMessage = "Some exception message";
@@ -117,7 +117,7 @@ namespace Quantify.UnitTests.Exceptions
         }
 
         [TestMethod]
-        public void WHILE_InnerExceptionIsNull_WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_THEN_InnerExceptionIsNull()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_InnerExceptionIsNull_THEN_InnerExceptionIsNull()
         {
             // Arrange
             const string expectedMessage = "Some exception message";

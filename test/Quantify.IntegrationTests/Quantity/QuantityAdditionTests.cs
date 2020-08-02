@@ -7,8 +7,11 @@ namespace Quantify.IntegrationTests.Quantity
     [TestClass]
     public class QuantityAdditionTests
     {
+        // Integration test, where an exception is thrown by the repository, because the unit does not exist.
+
+
         [TestMethod]
-        public void WHILE_BothQuantitiesArePositive_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
+        public void WHEN_Adding_QuantityToQuantity_WHILE_BothQuantitiesArePositive_THEN_ReturnSum()
         {
             // Arrange
             var quantity1 = TestQuantity.Create(22, TestData.Decimetre);
@@ -24,7 +27,7 @@ namespace Quantify.IntegrationTests.Quantity
         }
 
         [TestMethod]
-        public void WHILE_BothQuantitiesAreNegative_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
+        public void WHEN_Adding_QuantityToQuantity_WHILE_BothQuantitiesAreNegative_THEN_ReturnSum()
         {
             // Arrange
             var quantity1 = TestQuantity.Create(-52, TestData.Millimetre);
@@ -40,7 +43,7 @@ namespace Quantify.IntegrationTests.Quantity
         }
 
         [TestMethod]
-        public void WHILE_FirstQuantityIsPositive_SecondQuantityIsNegative_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
+        public void WHEN_Adding_QuantityToQuantity_WHILE_FirstQuantityIsPositive_SecondQuantityIsNegative_THEN_ReturnSum()
         {
             // Arrange
             var quantity1 = TestQuantity.Create(84, TestData.Kilometre);
@@ -56,7 +59,7 @@ namespace Quantify.IntegrationTests.Quantity
         }
 
         [TestMethod]
-        public void WHILE_FirstQuantityIsNegative_SecondQuantityIsPositive_WHEN_Adding_QuantityToQuantity_THEN_ReturnSum()
+        public void WHEN_Adding_QuantityToQuantity_WHILE_FirstQuantityIsNegative_SecondQuantityIsPositive_THEN_ReturnSum()
         {
             // Arrange
             var quantity1 = TestQuantity.Create(-36, TestData.Metre);
@@ -72,7 +75,7 @@ namespace Quantify.IntegrationTests.Quantity
         }
 
         [TestMethod]
-        public void WHILE_ArgumentIsNull_WHEN_Adding_QuantityToQuantity_THEN_ThrowException()
+        public void WHEN_Adding_QuantityToQuantity_WHILE_ArgumentIsNull_THEN_ThrowException()
         {
             // Arrange
             var quantity = TestQuantity.Create(22, TestData.Decimetre);
