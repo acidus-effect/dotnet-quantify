@@ -1,103 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Quantify.IntegrationTests.Quantity.Assets;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Quantify.IntegrationTests.Quantity
 {
     [TestClass]
-    public class QuantityAdditionTests
+    public class QuantityDivisionTests
     {
-        [DataTestMethod]
-        [DataRow(double.MaxValue, double.MaxValue)]
-        [DataRow(double.MaxValue, 365.4754)]
-        [DataRow(double.MaxValue, 0)]
-        [DataRow(double.MaxValue, -487.147)]
-        [DataRow(double.MaxValue, double.MinValue)]
-        [DataRow(25.458, double.MaxValue)]
-        [DataRow(25.458, 365.4754)]
-        [DataRow(25.458, 0)]
-        [DataRow(25.458, -487.147)]
-        [DataRow(25.458, double.MinValue)]
-        [DataRow(0, double.MaxValue)]
-        [DataRow(0, 365.4754)]
-        [DataRow(0, 0)]
-        [DataRow(0, -487.147)]
-        [DataRow(0, double.MinValue)]
-        [DataRow(-451.444, double.MaxValue)]
-        [DataRow(-451.444, 365.4754)]
-        [DataRow(-451.444, 0)]
-        [DataRow(-451.444, -487.147)]
-        [DataRow(-451.444, double.MinValue)]
-        [DataRow(double.MinValue, double.MaxValue)]
-        [DataRow(double.MinValue, 365.4754)]
-        [DataRow(double.MinValue, 0)]
-        [DataRow(double.MinValue, -487.147)]
-        [DataRow(double.MinValue, double.MinValue)]
-        public void WHEN_Adding_WHILE_BothSidesAreQuantities_UnitsAreTheSame_THEN_ReturnQuantityWithSummedValue(double term1Value, double term2Value)
-        {
-            // Arrange
-            var unit = TestData.Kilometre;
-
-            var quantityLhs = TestQuantity.Create(term1Value, unit);
-            var quantityRhs = TestQuantity.Create(term2Value, unit);
-
-            var expectedQuantityValue = term1Value + term2Value;
-            var expectedQuantityUnit = unit;
-
-            // Act
-            var calculatedQuantity = quantityLhs.Add(quantityRhs);
-
-            // Assert
-            Assert.AreEqual(expectedQuantityValue, calculatedQuantity.Value);
-            Assert.AreEqual(expectedQuantityUnit, calculatedQuantity.Unit);
-        }
-
-        [DataTestMethod]
-        [DataRow(double.MaxValue, double.MaxValue)]
-        [DataRow(double.MaxValue, 365.4754)]
-        [DataRow(double.MaxValue, 0)]
-        [DataRow(double.MaxValue, -487.147)]
-        [DataRow(double.MaxValue, double.MinValue)]
-        [DataRow(25.458, double.MaxValue)]
-        [DataRow(25.458, 365.4754)]
-        [DataRow(25.458, 0)]
-        [DataRow(25.458, -487.147)]
-        [DataRow(25.458, double.MinValue)]
-        [DataRow(0, double.MaxValue)]
-        [DataRow(0, 365.4754)]
-        [DataRow(0, 0)]
-        [DataRow(0, -487.147)]
-        [DataRow(0, double.MinValue)]
-        [DataRow(-451.444, double.MaxValue)]
-        [DataRow(-451.444, 365.4754)]
-        [DataRow(-451.444, 0)]
-        [DataRow(-451.444, -487.147)]
-        [DataRow(-451.444, double.MinValue)]
-        [DataRow(double.MinValue, double.MaxValue)]
-        [DataRow(double.MinValue, 365.4754)]
-        [DataRow(double.MinValue, 0)]
-        [DataRow(double.MinValue, -487.147)]
-        [DataRow(double.MinValue, double.MinValue)]
-        public void WHEN_Adding_WHILE_BothSidesAreQuantities_UnitsAreDifferent_THEN_ReturnQuantity_SummedValue_LhsUnit(double term1Value, double term2Value)
-        {
-            // Arrange
-            var term1Unit = TestData.Kilometre;
-            var term2Unit = TestData.Metre;
-
-            var expectedUnit = term1Unit;
-            var expectedValue = term1Value + (term2Value / TestData.KilometreUnitValue);
-
-            var term1Quantity = TestQuantity.Create(term1Value, term1Unit);
-            var term2Quantity = TestQuantity.Create(term2Value, term2Unit);
-
-            // Act
-            var calculatedQuantity = term1Quantity.Add(term2Quantity);
-
-            // Assert
-            Assert.AreEqual(expectedValue, calculatedQuantity.Value);
-            Assert.AreEqual(expectedUnit, calculatedQuantity.Unit);
-        }
-
         [DataTestMethod]
         [DataRow(double.MaxValue, "32767")]
         [DataRow(double.MaxValue, "365")]
@@ -124,7 +35,7 @@ namespace Quantify.IntegrationTests.Quantity
         [DataRow(double.MinValue, "0")]
         [DataRow(double.MinValue, "-487")]
         [DataRow(double.MinValue, "-32768")]
-        public void WHEN_Adding_WHILE_SecondTerm_Short_THEN_ReturnQuantityWithSummedValue(double term1Value, string term2ValueString)
+        public void WHEN_Dividing_WHILE_SecondTerm_Short_THEN_ReturnQuantityWithQuotientValue(double term1Value, string term2ValueString)
         {
             // Arrange
             var unit = TestData.Hectometre;
@@ -133,10 +44,10 @@ namespace Quantify.IntegrationTests.Quantity
             var term2Value = short.Parse(term2ValueString);
 
             var expectedUnit = unit;
-            var expectedValue = term1Value + term2Value;
+            var expectedValue = term1Value / term2Value;
 
             // Act
-            var calculatedQuantity = quantity.Add(term2Value);
+            var calculatedQuantity = quantity.DivideBy(term2Value);
 
             // Assert
             Assert.AreEqual(expectedValue, calculatedQuantity.Value);
@@ -159,7 +70,7 @@ namespace Quantify.IntegrationTests.Quantity
         [DataRow(double.MinValue, "32767")]
         [DataRow(double.MinValue, "365")]
         [DataRow(double.MinValue, "0")]
-        public void WHEN_Adding_WHILE_SecondTerm_UnsignedShort_THEN_ReturnQuantityWithSummedValue(double term1Value, string term2ValueString)
+        public void WHEN_Dividing_WHILE_SecondTerm_UnsignedShort_THEN_ReturnQuantityWithQuotientValue(double term1Value, string term2ValueString)
         {
             // Arrange
             var unit = TestData.Hectometre;
@@ -168,10 +79,10 @@ namespace Quantify.IntegrationTests.Quantity
             var term2Value = ushort.Parse(term2ValueString);
 
             var expectedUnit = unit;
-            var expectedValue = term1Value + term2Value;
+            var expectedValue = term1Value / term2Value;
 
             // Act
-            var calculatedQuantity = quantity.Add(term2Value);
+            var calculatedQuantity = quantity.DivideBy(term2Value);
 
             // Assert
             Assert.AreEqual(expectedValue, calculatedQuantity.Value);
@@ -204,7 +115,7 @@ namespace Quantify.IntegrationTests.Quantity
         [DataRow(double.MinValue, 0)]
         [DataRow(double.MinValue, -487)]
         [DataRow(double.MinValue, int.MinValue)]
-        public void WHEN_Adding_WHILE_SecondTerm_Integer_THEN_ReturnQuantityWithSummedValue(double term1Value, int term2Value)
+        public void WHEN_Dividing_WHILE_SecondTerm_Integer_THEN_ReturnQuantityWithQuotientValue(double term1Value, int term2Value)
         {
             // Arrange
             var unit = TestData.Hectometre;
@@ -212,10 +123,10 @@ namespace Quantify.IntegrationTests.Quantity
             var quantity = TestQuantity.Create(term1Value, unit);
 
             var expectedUnit = unit;
-            var expectedValue = term1Value + term2Value;
+            var expectedValue = term1Value / term2Value;
 
             // Act
-            var calculatedQuantity = quantity.Add(term2Value);
+            var calculatedQuantity = quantity.DivideBy(term2Value);
 
             // Assert
             Assert.AreEqual(expectedValue, calculatedQuantity.Value);
@@ -248,7 +159,7 @@ namespace Quantify.IntegrationTests.Quantity
         [DataRow(double.MinValue, 0L)]
         [DataRow(double.MinValue, -487L)]
         [DataRow(double.MinValue, long.MinValue)]
-        public void WHEN_Adding_WHILE_SecondTerm_Long_THEN_ReturnQuantityWithSummedValue(double term1Value, long term2Value)
+        public void WHEN_Dividing_WHILE_SecondTerm_Long_THEN_ReturnQuantityWithQuotientValue(double term1Value, long term2Value)
         {
             // Arrange
             var unit = TestData.Hectometre;
@@ -256,10 +167,10 @@ namespace Quantify.IntegrationTests.Quantity
             var quantity = TestQuantity.Create(term1Value, unit);
 
             var expectedUnit = unit;
-            var expectedValue = term1Value + term2Value;
+            var expectedValue = term1Value / term2Value;
 
             // Act
-            var calculatedQuantity = quantity.Add(term2Value);
+            var calculatedQuantity = quantity.DivideBy(term2Value);
 
             // Assert
             Assert.AreEqual(expectedValue, calculatedQuantity.Value);
@@ -292,7 +203,7 @@ namespace Quantify.IntegrationTests.Quantity
         [DataRow(double.MinValue, 0)]
         [DataRow(double.MinValue, -487.147)]
         [DataRow(double.MinValue, double.MinValue)]
-        public void WHEN_Adding_WHILE_SecondTerm_Double_THEN_ReturnQuantityWithSummedValue(double term1Value, double term2Value)
+        public void WHEN_Dividing_WHILE_SecondTerm_Double_THEN_ReturnQuantityWithQuotientValue(double term1Value, double term2Value)
         {
             // Arrange
             var unit = TestData.Hectometre;
@@ -300,10 +211,10 @@ namespace Quantify.IntegrationTests.Quantity
             var quantity = TestQuantity.Create(term1Value, unit);
 
             var expectedUnit = unit;
-            var expectedValue = term1Value + term2Value;
+            var expectedValue = term1Value / term2Value;
 
             // Act
-            var calculatedQuantity = quantity.Add(term2Value);
+            var calculatedQuantity = quantity.DivideBy(term2Value);
 
             // Assert
             Assert.AreEqual(expectedValue, calculatedQuantity.Value);
@@ -320,7 +231,7 @@ namespace Quantify.IntegrationTests.Quantity
         [DataRow(0, "365.4754")]
         [DataRow(0, "0")]
         [DataRow(0, "-487.147")]
-        public void WHEN_Adding_WHILE_SecondTerm_Decimal_THEN_ReturnQuantityWithSummedValue(double term1Value, string term2ValueString)
+        public void WHEN_Dividing_WHILE_SecondTerm_Decimal_THEN_ReturnQuantityWithQuotientValue(double term1Value, string term2ValueString)
         {
             // Arrange
             var unit = TestData.Hectometre;
@@ -329,10 +240,10 @@ namespace Quantify.IntegrationTests.Quantity
             var quantity = TestQuantity.Create(term1Value, unit);
 
             var expectedUnit = unit;
-            var expectedValue = term1Value + Convert.ToDouble(term2Value);
+            var expectedValue = term1Value / Convert.ToDouble(term2Value);
 
             // Act
-            var calculatedQuantity = quantity.Add(term2Value);
+            var calculatedQuantity = quantity.DivideBy(term2Value);
 
             // Assert
             Assert.AreEqual(expectedValue, calculatedQuantity.Value);
@@ -365,7 +276,7 @@ namespace Quantify.IntegrationTests.Quantity
         [DataRow(double.MinValue, 0f)]
         [DataRow(double.MinValue, -487.147f)]
         [DataRow(double.MinValue, float.MinValue)]
-        public void WHEN_Adding_WHILE_SecondTerm_Float_THEN_ReturnQuantityWithSummedValue(double term1Value, float term2Value)
+        public void WHEN_Dividing_WHILE_SecondTerm_Float_THEN_ReturnQuantityWithQuotientValue(double term1Value, float term2Value)
         {
             // Arrange
             var unit = TestData.Hectometre;
@@ -373,10 +284,10 @@ namespace Quantify.IntegrationTests.Quantity
             var quantity = TestQuantity.Create(term1Value, unit);
 
             var expectedUnit = unit;
-            var expectedValue = term1Value + Convert.ToDouble(term2Value);
+            var expectedValue = term1Value / Convert.ToDouble(term2Value);
 
             // Act
-            var calculatedQuantity = quantity.Add(term2Value);
+            var calculatedQuantity = quantity.DivideBy(term2Value);
 
             // Assert
             Assert.AreEqual(expectedValue, calculatedQuantity.Value);

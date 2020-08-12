@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Quantify.Test.Assets;
+using Quantify.UnitTests.TestQuantities;
 
 namespace Quantify.UnitTests.Quantity
 {

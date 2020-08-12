@@ -15,5 +15,11 @@
     <ProjectReference Include="..\..\src\Quantify\Quantify.csproj" />
     <ProjectReference Include="..\Quantify.Test.Assets\Quantify.Test.Assets.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
 
 </Project>

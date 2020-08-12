@@ -1,4 +1,4 @@
-﻿namespace Quantify.Test.Assets
+﻿namespace Quantify.UnitTests.TestQuantities
 {
     public class StringValueStringUnitQuantity : Quantity<string, string, StringValueStringUnitQuantity>
     {

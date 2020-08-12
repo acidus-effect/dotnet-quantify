@@ -4,43 +4,159 @@ namespace Quantify
 {
     public partial class Quantity<TValue, TUnit, TQuantity>
     {
-        public TQuantity Subtract(TQuantity quantity)
+        public virtual TQuantity Subtract(TQuantity subtrahendQuantity)
         {
-            var convertedQuantity = ToUnit(quantity.Unit);
-            return Subtract(convertedQuantity.Value);
+            if (subtrahendQuantity == null)
+                throw new ArgumentNullException(nameof(subtrahendQuantity));
+
+            var convertedSubtrahendQuantityValue = valueConverter.ConvertValueToUnit(subtrahendQuantity.Value, subtrahendQuantity.Unit, Unit);
+            return Subtract(convertedSubtrahendQuantityValue);
         }
 
-        public TQuantity Subtract(TValue value)
+        public virtual TQuantity Subtract(TValue subtrahend)
         {
-            var newValue = valueCalculator.Subtract(Value, value);
-            return CreateInstance(newValue);
+            if (subtrahend == null)
+                throw new ArgumentNullException(nameof(subtrahend));
+
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
         }
 
-        public TQuantity Subtract(int value)
+        public virtual TQuantity Subtract(short subtrahend)
         {
-            var newValue = valueCalculator.Subtract(Value, value);
-            return CreateInstance(newValue);
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
         }
 
-        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> lhs, TQuantity rhs)
+        public virtual TQuantity Subtract(ushort subtrahend)
         {
-            if (lhs == null)
-                throw new ArgumentNullException(nameof(lhs));
-
-            if (rhs == null)
-                throw new ArgumentNullException(nameof(rhs));
-
-            return lhs.Subtract(rhs);
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
         }
 
-        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> quantity, TValue value)
+        public virtual TQuantity Subtract(int subtrahend)
         {
-            return quantity.Subtract(value);
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
         }
 
-        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> quantity, int value)
+        public virtual TQuantity Subtract(uint subtrahend)
         {
-            return quantity.Subtract(value);
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
+        }
+
+        public virtual TQuantity Subtract(long subtrahend)
+        {
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
+        }
+
+        public virtual TQuantity Subtract(ulong subtrahend)
+        {
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
+        }
+
+        public virtual TQuantity Subtract(double subtrahend)
+        {
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
+        }
+
+        public virtual TQuantity Subtract(decimal subtrahend)
+        {
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
+        }
+
+        public virtual TQuantity Subtract(float subtrahend)
+        {
+            var difference = valueCalculator.Subtract(Value, subtrahend);
+            return CreateInstance(difference);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, TQuantity subtrahendQuantity)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            if (subtrahendQuantity == null)
+                throw new ArgumentNullException(nameof(subtrahendQuantity));
+
+            return minuendQuantity.Subtract(subtrahendQuantity);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, short subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, ushort subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, int subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, uint subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, long subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, ulong subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, double subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, decimal subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
+        }
+
+        public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, float subtrahend)
+        {
+            if (minuendQuantity == null)
+                throw new ArgumentNullException(nameof(minuendQuantity));
+
+            return minuendQuantity.Subtract(subtrahend);
         }
     }
 }

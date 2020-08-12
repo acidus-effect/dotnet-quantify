@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Quantify.Test.Assets;
+using Quantify.UnitTests.TestQuantities;
 
 namespace Quantify.UnitTests.Quantity
 {
@@ -31,10 +32,8 @@ namespace Quantify.UnitTests.Quantity
         public void WHEN_CheckingEquality_StronglyTyped_WHILE_QuantitiesAreDifferentInstances_THEN_ReturnTrueIfEqual(double value1, string unit1, double value2, string unit2, bool expectedIsEqual)
         {
             // Arrange
-            var unitRepository = new Mock<UnitRepository<double, string>>().Object;
-
-            var quantity1 = new DoubleValueStringUnitQuantity(value1, unit1, unitRepository);
-            var qualtity2 = new DoubleValueStringUnitQuantity(value2, unit2, unitRepository);
+            var quantity1 = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(value1).WithUnit(unit1).Build();
+            var qualtity2 = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(value2).WithUnit(unit2).Build();
 
             // Act
             var actualIsEqual = quantity1.Equals(qualtity2);
@@ -68,10 +67,8 @@ namespace Quantify.UnitTests.Quantity
         public void WHEN_CheckingEquality_ObjectType_WHILE_QuantitiesAreDifferentInstances_THEN_ReturnTrueIfEqual(double value1, string unit1, double value2, string unit2, bool expectedIsEqual)
         {
             // Arrange
-            var unitRepository = new Mock<UnitRepository<double, string>>().Object;
-
-            var quantity1 = new DoubleValueStringUnitQuantity(value1, unit1, unitRepository);
-            var qualtity2 = new DoubleValueStringUnitQuantity(value2, unit2, unitRepository) as object;
+            var quantity1 = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(value1).WithUnit(unit1).Build();
+            var qualtity2 = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(value2).WithUnit(unit2).Build() as object;
 
             // Act
             var actualIsEqual = quantity1.Equals(qualtity2);
@@ -84,8 +81,7 @@ namespace Quantify.UnitTests.Quantity
         public void WHEN_CheckingEquality_StronglyTyped_WHILE_InputIsNull_THEN_ReturnFalse()
         {
             // Arrange
-            var unitRepository = new Mock<UnitRepository<double, string>>().Object;
-            var quantity = new DoubleValueStringUnitQuantity(123, "Some Unit", unitRepository);
+            var quantity = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(123).WithUnit("Some Unit").Build();
 
             // Act
             var areEqual = quantity.Equals(null);
@@ -98,8 +94,7 @@ namespace Quantify.UnitTests.Quantity
         public void WHEN_CheckingEquality_ObjectType_WHILE_InputIsNull_THEN_ReturnFalse()
         {
             // Arrange
-            var unitRepository = new Mock<UnitRepository<double, string>>().Object;
-            var quantity = new DoubleValueStringUnitQuantity(123, "Some Unit", unitRepository);
+            var quantity = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(123).WithUnit("Some Unit").Build();
 
             // Act
             var areEqual = quantity.Equals(null as object);
@@ -112,8 +107,7 @@ namespace Quantify.UnitTests.Quantity
         public void WHEN_CheckingEquality_StronglyTyped_WHILE_InputIsTheSameInstance_THEN_ReturnTrue()
         {
             // Arrange
-            var unitRepository = new Mock<UnitRepository<double, string>>().Object;
-            var quantity = new DoubleValueStringUnitQuantity(123, "Some Unit", unitRepository);
+            var quantity = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(123).WithUnit("Some Unit").Build();
 
             // Act
             var areEqual = quantity.Equals(quantity);
@@ -126,8 +120,7 @@ namespace Quantify.UnitTests.Quantity
         public void WHEN_CheckingEquality_ObjectType_WHILE_InputIsTheSameInstance_THEN_ReturnTrue()
         {
             // Arrange
-            var unitRepository = new Mock<UnitRepository<double, string>>().Object;
-            var quantity = new DoubleValueStringUnitQuantity(123, "Some Unit", unitRepository);
+            var quantity = DoubleValueStringUnitQuantityBuilder.NewInstance().WithValue(123).WithUnit("Some Unit").Build();
 
             // Act
             var areEqual = quantity.Equals(quantity as object);

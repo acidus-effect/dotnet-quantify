@@ -3,33 +3,33 @@ using System.Collections.Generic;
 
 namespace Quantify.IntegrationTests.Quantity.Assets
 {
-    internal class TestData
+    public class TestData
     {
-        public static string Millimetre { get; } = "Millimetre";
-        public static string Centimetre { get; } = "Centimetre";
-        public static string Decimetre { get; } = "Decimetre";
-        public static string Metre { get; } = "Metre";
-        public static string Decametre { get; } = "Decametre";
-        public static string Hectometre { get; } = "Hectometre";
-        public static string Kilometre { get; } = "Kilometre";
+        public const string Millimetre = "Millimetre";
+        public const string Centimetre = "Centimetre";
+        public const string Decimetre = "Decimetre";
+        public const string Metre = "Metre";
+        public const string Decametre = "Decametre";
+        public const string Hectometre = "Hectometre";
+        public const string Kilometre = "Kilometre";
 
-        private static readonly double millimetreUnitValue = 0.001;
-        private static readonly double centimetreUnitValue = 0.01;
-        private static readonly double decimetreUnitValue = 0.1;
-        private static readonly double metreUnitValue = 1;
-        private static readonly double decametreUnitValue = 10;
-        private static readonly double hectometreUnitValue = 100;
-        private static readonly double kilometreUnitValue = 1000;
+        public const double MillimetreUnitValue = 0.001;
+        public const double CentimetreUnitValue = 0.01;
+        public const double DecimetreUnitValue = 0.1;
+        public const double MetreUnitValue = 1;
+        public const double DecametreUnitValue = 10;
+        public const double HectometreUnitValue = 100;
+        public const double KilometreUnitValue = 1000;
 
         private static readonly IDictionary<string, double> unitDataDictionary = new Dictionary<string, double>()
         {
-            { Millimetre, millimetreUnitValue },
-            { Centimetre, centimetreUnitValue },
-            { Decimetre, decimetreUnitValue },
-            { Metre, metreUnitValue },
-            { Decametre, decametreUnitValue },
-            { Hectometre, hectometreUnitValue },
-            { Kilometre, kilometreUnitValue }
+            { Millimetre, MillimetreUnitValue },
+            { Centimetre, CentimetreUnitValue },
+            { Decimetre, DecimetreUnitValue },
+            { Metre, MetreUnitValue },
+            { Decametre, DecametreUnitValue },
+            { Hectometre, HectometreUnitValue },
+            { Kilometre, KilometreUnitValue }
         };
 
         public static UnitRepository<double, string> CreateUnitRepository()

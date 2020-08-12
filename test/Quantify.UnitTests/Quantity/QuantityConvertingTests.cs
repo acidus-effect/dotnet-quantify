@@ -1,9 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Quantify.Test.Assets;
+using Quantify.UnitTests.TestQuantities;
 
 namespace Quantify.UnitTests.Quantity
 {
+    [TestClass]
     public partial class QuantityConvertingTests
     {
         [TestMethod]
@@ -36,23 +38,22 @@ namespace Quantify.UnitTests.Quantity
             const double targetValue = 21;
             const string targetUnit = "Another Unit";
 
-            var unitRepository = new Mock<UnitRepository<double, string>>().Object;
-            var valueCalculator = new Mock<ValueCalculator<double>>().Object;
-            var valueConverterMock = new Mock<ValueConverter<double, string>>(unitRepository, valueCalculator);
-
-            valueConverterMock.Setup(valueConverter => valueConverter.ConvertValueToUnit(sourceValue, sourceUnit, targetUnit)).Returns(targetValue);
-
-            var quantity = new DoubleValueStringUnitQuantity(sourceValue, sourceUnit, unitRepository, valueCalculator, valueConverterMock.Object);
+            var quantityBuilder = DoubleValueStringUnitQuantityBuilder.NewInstance();
+            var quantity = quantityBuilder
+                .WithUnit(sourceUnit)
+                .WithValue(sourceValue)
+                .MockValueConverter(valueConverterMock => valueConverterMock.Setup(valueConverter => valueConverter.ConvertValueToUnit(It.Is<double>(value => value == sourceValue), It.Is<string>(unit => unit == sourceUnit), It.Is<string>(unit => unit == targetUnit))).Returns(targetValue))
+                .Build();
 
             // Act
             var convertedQuantity = quantity.ToUnit(targetUnit);
 
             // Assert
+            quantityBuilder.ValueConverterMock.Verify(valueConverter => valueConverter.ConvertValueToUnit(It.Is<double>(value => value == sourceValue), It.Is<string>(unit => unit == sourceUnit), It.Is<string>(unit => unit == targetUnit)), Times.Once);
+
             Assert.AreNotSame(quantity, convertedQuantity);
             Assert.AreEqual(targetUnit, convertedQuantity.Unit);
             Assert.AreEqual(targetValue, convertedQuantity.Value);
-
-            valueConverterMock.Verify(valueConverter => valueConverter.ConvertValueToUnit(sourceValue, sourceUnit, targetUnit), Times.Once);
         }
 
         [TestMethod]

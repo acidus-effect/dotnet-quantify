@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Quantify
 {
@@ -12,12 +13,23 @@ namespace Quantify
         private readonly ValueCalculator<TValue> valueCalculator;
         private readonly IValueConverter<TValue, TUnit> valueConverter;
 
-        internal protected Quantity(
-            TValue value,
-            TUnit unit,
-            UnitRepository<TValue, TUnit> unitRepository,
-            ValueCalculator<TValue> valueCalculator,
-            IValueConverter<TValue, TUnit> valueConverter)
+        protected Quantity(TValue value, TUnit unit, UnitRepository<TValue, TUnit> unitRepository)
+        {
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
+            if (unit == null)
+                throw new ArgumentNullException(nameof(unit));
+
+            Value = value;
+            Unit = unit;
+
+            this.unitRepository = unitRepository ?? throw new ArgumentNullException(nameof(unitRepository));
+            this.valueCalculator = ValueCalculatorFactory.Create<TValue>();
+            this.valueConverter = new ValueConverter<TValue, TUnit>(unitRepository, valueCalculator);
+        }
+
+        protected Quantity(TValue value, TUnit unit, UnitRepository<TValue, TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, IValueConverter<TValue, TUnit> valueConverter)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
@@ -33,23 +45,6 @@ namespace Quantify
             this.valueConverter = valueConverter ?? throw new ArgumentNullException(nameof(valueConverter));
         }
 
-        protected Quantity(TValue value, TUnit unit, UnitRepository<TValue, TUnit> unitRepository)
-        {
-            if (value == null)
-                throw new ArgumentNullException(nameof(value));
-
-            if (unit == null)
-                throw new ArgumentNullException(nameof(unit));
-
-            Value = value;
-            Unit = unit;
-
-            this.unitRepository = unitRepository ?? throw new ArgumentNullException(nameof(unitRepository));
-
-            this.valueCalculator = ValueCalculatorFactory.Create<TValue>();
-            this.valueConverter = new ValueConverter<TValue, TUnit>(unitRepository, valueCalculator);
-        }
-
         public virtual TQuantity ToUnit(TUnit targetUnit)
         {
             if (targetUnit == null)
@@ -58,12 +53,12 @@ namespace Quantify
             if (Unit.Equals(targetUnit))
                 return this as TQuantity;
 
-            var newValue = valueConverter.ConvertValueToUnit(Value, Unit, targetUnit);
-            return CreateInstance(newValue, targetUnit);
+            var convertedValue = valueConverter.ConvertValueToUnit(Value, Unit, targetUnit);
+            return CreateInstance(convertedValue, targetUnit);
         }
 
         private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
-        private TQuantity CreateInstance(TValue value, TUnit unit) => (TQuantity) Activator.CreateInstance(typeof(TQuantity), new object[] { value, unit, unitRepository, valueCalculator, valueConverter });
+        private TQuantity CreateInstance(TValue value, TUnit unit) => (TQuantity) Activator.CreateInstance(typeof(TQuantity), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { value, unit, unitRepository, valueCalculator, valueConverter }, null);
 
         public override bool Equals(object other)
         {
