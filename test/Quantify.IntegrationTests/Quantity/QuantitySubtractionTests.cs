@@ -313,15 +313,21 @@ namespace Quantify.IntegrationTests.Quantity
         }
 
         [DataTestMethod]
+        [DataRow(double.MaxValue, "365.4754")]
+        [DataRow(double.MaxValue, "0")]
+        [DataRow(double.MaxValue, "-487.147")]
         [DataRow(25.458, "365.4754")]
         [DataRow(25.458, "0")]
         [DataRow(25.458, "-487.147")]
-        [DataRow(-451.444, "365.4754")]
-        [DataRow(-451.444, "0")]
-        [DataRow(-451.444, "-487.147")]
         [DataRow(0, "365.4754")]
         [DataRow(0, "0")]
         [DataRow(0, "-487.147")]
+        [DataRow(-451.444, "365.4754")]
+        [DataRow(-451.444, "0")]
+        [DataRow(-451.444, "-487.147")]
+        [DataRow(double.MinValue, "365.4754")]
+        [DataRow(double.MinValue, "0")]
+        [DataRow(double.MinValue, "-487.147")]
         public void WHEN_Subtracting_WHILE_SecondTerm_Decimal_THEN_ReturnQuantityWithDifferenceValue(double term1Value, string term2ValueString)
         {
             // Arrange
