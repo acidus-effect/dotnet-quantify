@@ -3,8 +3,6 @@ using Moq;
 using Quantify.IntegrationTests.Quantity.Assets;
 using Quantify.Test.Assets;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Quantify.IntegrationTests.Quantity
 {

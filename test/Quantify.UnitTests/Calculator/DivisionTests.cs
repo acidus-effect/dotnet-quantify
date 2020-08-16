@@ -15,7 +15,7 @@ namespace Quantify.UnitTests.Calculator
             var dividend = 1;
 
             // Act & Assert
-            ExceptionHelpers.ExpectException<DivideByZeroException>(() => valueCalculator.Divide(dividend, (short) 0));
+            ExceptionHelpers.ExpectException<DivideByZeroException>(() => valueCalculator.Divide(dividend, (short)0));
             ExceptionHelpers.ExpectException<DivideByZeroException>(() => valueCalculator.Divide(dividend, (ushort)0));
             ExceptionHelpers.ExpectException<DivideByZeroException>(() => valueCalculator.Divide(dividend, (int)0));
             ExceptionHelpers.ExpectException<DivideByZeroException>(() => valueCalculator.Divide(dividend, (uint)0));

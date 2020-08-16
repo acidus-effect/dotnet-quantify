@@ -58,7 +58,7 @@ namespace Quantify
         }
 
         private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
-        private TQuantity CreateInstance(TValue value, TUnit unit) => (TQuantity) Activator.CreateInstance(typeof(TQuantity), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { value, unit, unitRepository, valueCalculator, valueConverter }, null);
+        private TQuantity CreateInstance(TValue value, TUnit unit) => (TQuantity)Activator.CreateInstance(typeof(TQuantity), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { value, unit, unitRepository, valueCalculator, valueConverter }, null);
 
         public override bool Equals(object other)
         {

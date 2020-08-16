@@ -11,7 +11,7 @@
         internal TestQuantity(double value, string unit, UnitRepository<double, string> unitRepository)
             : base(value, unit, unitRepository)
         {
-            
+
         }
 
         public static TestQuantity Create(double value, string unit)

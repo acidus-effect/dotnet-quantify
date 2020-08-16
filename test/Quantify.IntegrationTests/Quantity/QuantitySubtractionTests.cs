@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Quantify.IntegrationTests.Quantity.Assets;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Quantify.IntegrationTests.Quantity
 {

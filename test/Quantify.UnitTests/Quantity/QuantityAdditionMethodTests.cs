@@ -26,7 +26,7 @@ namespace Quantify.UnitTests.Quantity
 
             // Act & Assert
             ExceptionHelpers.ExpectArgumentNullException("term", () => quantity.Add(null as string));
-        } 
+        }
 
         [TestMethod]
         public void WHEN_Adding_WHILE_Input_Quantity_THEN_ReturnNewQuantityWithSum_LhsUnit()

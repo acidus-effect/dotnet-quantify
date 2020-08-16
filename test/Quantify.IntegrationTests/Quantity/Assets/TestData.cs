@@ -36,7 +36,7 @@ namespace Quantify.IntegrationTests.Quantity.Assets
         {
             var unitRepositoryMock = new Mock<UnitRepository<double, string>>();
 
-            foreach(var unitData in unitDataDictionary)
+            foreach (var unitData in unitDataDictionary)
             {
                 unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnit(It.Is<string>(unit => unit == unitData.Key))).Returns(CreateUnitData(unitData.Key, unitData.Value));
             }
