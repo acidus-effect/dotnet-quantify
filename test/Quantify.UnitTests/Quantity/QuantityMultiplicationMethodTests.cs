@@ -19,7 +19,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_Short_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_Short_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -47,7 +47,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_UnsignedShort_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_UnsignedShort_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -75,7 +75,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_Integer_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_Integer_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -103,7 +103,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_UnsignedInteger_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_UnsignedInteger_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -131,7 +131,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_Long_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_Long_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -159,7 +159,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_UnsignedLong_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_UnsignedLong_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -187,7 +187,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_Double_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_Double_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -215,7 +215,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_Decimal_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_Decimal_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -243,7 +243,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Multiplying_WHILE_Input_Float_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Multiplying_WHILE_Input_Float_THEN_ReturnNewQuantityWithProduct()
         {
             // Arrange
             var quantityUnit = "TheUnit";

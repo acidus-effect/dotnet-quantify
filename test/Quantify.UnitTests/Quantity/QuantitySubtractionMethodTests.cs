@@ -29,7 +29,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_Quantity_THEN_ReturnNewQuantityWithSum_LhsUnit()
+        public void WHEN_Subtracting_WHILE_Input_Quantity_THEN_ReturnNewQuantityWithDifference_LhsUnit()
         {
             // Arrange
             var quantityLhsValue = 254.47;
@@ -67,7 +67,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_Short_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_Short_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -95,7 +95,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_UnsignedShort_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_UnsignedShort_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -123,7 +123,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_Integer_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_Integer_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -151,7 +151,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_UnsignedInteger_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_UnsignedInteger_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -179,7 +179,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_Long_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_Long_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -207,7 +207,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_UnsignedLong_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_UnsignedLong_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -235,7 +235,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_Double_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_Double_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -263,7 +263,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_Decimal_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_Decimal_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";
@@ -291,7 +291,7 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Subtracting_WHILE_Input_Float_THEN_ReturnNewQuantityWithSum()
+        public void WHEN_Subtracting_WHILE_Input_Float_THEN_ReturnNewQuantityWithDifference()
         {
             // Arrange
             var quantityUnit = "TheUnit";

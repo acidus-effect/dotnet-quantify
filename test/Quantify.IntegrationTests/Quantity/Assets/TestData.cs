@@ -47,8 +47,8 @@ namespace Quantify.IntegrationTests.Quantity.Assets
         private static UnitData<double, string> CreateUnitData(string unit, double value)
         {
             var unitDataMock = new Mock<UnitData<double, string>>();
-            unitDataMock.Setup(unitData => unitData.Unit).Returns(unit);
             unitDataMock.Setup(unitData => unitData.Value).Returns(value);
+            unitDataMock.Setup(unitData => unitData.Unit).Returns(unit);
             return unitDataMock.Object;
         }
     }
