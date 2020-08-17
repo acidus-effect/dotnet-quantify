@@ -18,10 +18,10 @@ namespace Quantify
             if (sourceUnit.Equals(targetUnit))
                 return value;
 
-            var sourceRate = unitRepository.GetUnit(sourceUnit);
-            var targetRate = unitRepository.GetUnit(targetUnit);
+            var sourceUnitData = unitRepository.GetUnit(sourceUnit);
+            var targetUnitData = unitRepository.GetUnit(targetUnit);
 
-            return valueCalculator.Multiply(value, valueCalculator.Divide(sourceRate.Value, targetRate.Value));
+            return valueCalculator.Multiply(value, valueCalculator.Divide(sourceUnitData.Value, targetUnitData.Value));
         }
     }
 }

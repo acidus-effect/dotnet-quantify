@@ -7,7 +7,7 @@ namespace Quantify.UnitTests.Calculator
     public class ValueCalculatorFactoryTests
     {
         [TestMethod]
-        public void WHEN_Instantiating_WHILE_ArgumentTypeIsDouble_THEN_ReturnDoubleValueCalculatorInstance()
+        public void WHEN_Instantiating_WHILE_ArgumentType_Double_THEN_ReturnCorrectInstance()
         {
             // Act
             var valueCalculator = ValueCalculatorFactory.Create<double>();
@@ -17,7 +17,7 @@ namespace Quantify.UnitTests.Calculator
         }
 
         [TestMethod]
-        public void WHEN_Instantiating_WHILE_ArgumentTypeIsDecimal_THEN_ReturnDecimalValueCalculatorInstance()
+        public void WHEN_Instantiating_WHILE_ArgumentType_Decimal_THEN_ReturnCorrectInstance()
         {
             // Act
             var valueCalculator = ValueCalculatorFactory.Create<decimal>();
@@ -27,7 +27,7 @@ namespace Quantify.UnitTests.Calculator
         }
 
         [TestMethod]
-        public void WHEN_Instantiating_WHILE_ArgumentTypeIsInvalid_THEN_ThrowException()
+        public void WHEN_Instantiating_WHILE_ArgumentType_Invalid_THEN_ThrowException()
         {
             // Act & Assert
             ExceptionHelpers.ExpectException<GenericArgumentException>(() => ValueCalculatorFactory.Create<string>(), exception => Assert.AreEqual("TValue", exception.ArgumentName));

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Quantify.Test.Assets;
 using System;
 
 namespace Quantify.UnitTests.Exceptions
@@ -7,132 +8,91 @@ namespace Quantify.UnitTests.Exceptions
     public class GenericArgumentExceptionTests
     {
         [TestMethod]
-        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_MessageIsNull_THEN_HasDefaultMessage()
-        {
-            // Arrange
-            const string message = null;
-            const string expectedMessage = "A generic argument is invalid.";
-            const string expectedArgumentName = "Some argument name";
-            Type expectedArgumentType = typeof(GenericArgumentException);
-
-            // Act
-            var exception = new GenericArgumentException(message, expectedArgumentName, expectedArgumentType);
-
-            // Assert
-            Assert.AreEqual(expectedMessage, exception.Message);
-            Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
-            Assert.AreSame(expectedArgumentType, exception.ArgumentType);
-        }
-
-        [TestMethod]
-        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_ArgumentNameIsNull_THEN_ArgumentNameIsNull()
-        {
-            // Arrange
-            const string expectedMessage = "Some exception message";
-            const string argumentName = null;
-            Type expectedArgumentType = typeof(GenericArgumentException);
-
-            // Act
-            var exception = new GenericArgumentException(expectedMessage, argumentName, expectedArgumentType);
-
-            // Assert
-            Assert.AreEqual(expectedMessage, exception.Message);
-            Assert.IsNull(exception.ArgumentName);
-            Assert.AreSame(expectedArgumentType, exception.ArgumentType);
-        }
-
-        [TestMethod]
-        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_ArgumentTypeIsNull_THEN_ArgumentTypeIsNull()
-        {
-            // Arrange
-            const string expectedMessage = "Some exception message";
-            const string expectedArgumentName = "Some argument name";
-            Type argumentType = null;
-
-            // Act
-            var exception = new GenericArgumentException(expectedMessage, expectedArgumentName, argumentType);
-
-            // Assert
-            Assert.AreEqual(expectedMessage, exception.Message);
-            Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
-            Assert.IsNull(exception.ArgumentType);
-        }
-
-        [TestMethod]
-        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_MessageIsNull_THEN_HasDefaultMessage()
-        {
-            // Arrange
-            const string message = null;
-            const string expectedMessage = "A generic argument is invalid.";
-            const string expectedArgumentName = "Some argument name";
-            Type expectedArgumentType = typeof(GenericArgumentException);
-            Exception expectedInnerException = new ArgumentException();
-
-            // Act
-            var exception = new GenericArgumentException(message, expectedArgumentName, expectedArgumentType, expectedInnerException);
-
-            // Assert
-            Assert.AreEqual(expectedMessage, exception.Message);
-            Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
-            Assert.AreSame(expectedArgumentType, exception.ArgumentType);
-            Assert.AreSame(expectedInnerException, exception.InnerException);
-        }
-
-        [TestMethod]
-        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_ArgumentNameIsNull_THEN_ArgumentNameIsNull()
-        {
-            // Arrange
-            const string expectedMessage = "Some exception message";
-            const string argumentName = null;
-            Type expectedArgumentType = typeof(GenericArgumentException);
-            Exception expectedInnerException = new ArgumentException();
-
-            // Act
-            var exception = new GenericArgumentException(expectedMessage, argumentName, expectedArgumentType, expectedInnerException);
-
-            // Assert
-            Assert.AreEqual(expectedMessage, exception.Message);
-            Assert.IsNull(exception.ArgumentName);
-            Assert.AreSame(expectedArgumentType, exception.ArgumentType);
-            Assert.AreSame(expectedInnerException, exception.InnerException);
-        }
-
-        [TestMethod]
-        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_ArgumentTypeIsNull_THEN_ArgumentTypeIsNull()
-        {
-            // Arrange
-            const string expectedMessage = "Some exception message";
-            const string expectedArgumentName = "Some argument name";
-            Type argumentType = null;
-            Exception expectedInnerException = new ArgumentException();
-
-            // Act
-            var exception = new GenericArgumentException(expectedMessage, expectedArgumentName, argumentType, expectedInnerException);
-
-            // Assert
-            Assert.AreEqual(expectedMessage, exception.Message);
-            Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
-            Assert.IsNull(exception.ArgumentType);
-            Assert.AreSame(expectedInnerException, exception.InnerException);
-        }
-
-        [TestMethod]
-        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_InnerExceptionIsNull_THEN_InnerExceptionIsNull()
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_ArgumentsAreSet_THEN_CreateInstance()
         {
             // Arrange
             const string expectedMessage = "Some exception message";
             const string expectedArgumentName = "Some argument name";
             Type expectedArgumentType = typeof(GenericArgumentException);
-            Exception innerException = null;
 
             // Act
-            var exception = new GenericArgumentException(expectedMessage, expectedArgumentName, expectedArgumentType, innerException);
+            var exception = new GenericArgumentException(expectedMessage, expectedArgumentName, expectedArgumentType);
 
             // Assert
             Assert.AreEqual(expectedMessage, exception.Message);
             Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
             Assert.AreSame(expectedArgumentType, exception.ArgumentType);
             Assert.IsNull(exception.InnerException);
+        }
+
+        [TestMethod]
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_MessageIsNull_THEN_HasDefaultMessage()
+        {
+            // Arrange
+            const string expectedMessage = "A generic argument is invalid.";
+            const string expectedArgumentName = "Some argument name";
+            Type expectedArgumentType = typeof(GenericArgumentException);
+
+            // Act
+            var exception = new GenericArgumentException(null, expectedArgumentName, expectedArgumentType);
+
+            // Assert
+            Assert.AreEqual(expectedMessage, exception.Message);
+            Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
+            Assert.AreSame(expectedArgumentType, exception.ArgumentType);
+            Assert.IsNull(exception.InnerException);
+        }
+
+        [TestMethod]
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_WHILE_AllArgumentAreNull_THEN_ThrowNoException()
+        {
+            // Act & Assert
+            ExceptionHelpers.ExpectNoException(() => new GenericArgumentException(null, null, null));
+        }
+
+        [TestMethod]
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_ArgumentsAreSet_THEN_CreateInstance()
+        {
+            // Arrange
+            const string expectedMessage = "Some exception message";
+            const string expectedArgumentName = "Some argument name";
+            Type expectedArgumentType = typeof(GenericArgumentException);
+            Exception expectedInnerException = new ArgumentException();
+
+            // Act
+            var exception = new GenericArgumentException(expectedMessage, expectedArgumentName, expectedArgumentType, expectedInnerException);
+
+            // Assert
+            Assert.AreEqual(expectedMessage, exception.Message);
+            Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
+            Assert.AreSame(expectedArgumentType, exception.ArgumentType);
+            Assert.AreSame(expectedInnerException, exception.InnerException);
+        }
+
+        [TestMethod]
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_MessageIsNull_THEN_HasDefaultMessage()
+        {
+            // Arrange
+            const string expectedMessage = "A generic argument is invalid.";
+            const string expectedArgumentName = "Some argument name";
+            Type expectedArgumentType = typeof(GenericArgumentException);
+            Exception expectedInnerException = new ArgumentException();
+
+            // Act
+            var exception = new GenericArgumentException(null, expectedArgumentName, expectedArgumentType, expectedInnerException);
+
+            // Assert
+            Assert.AreEqual(expectedMessage, exception.Message);
+            Assert.AreEqual(expectedArgumentName, exception.ArgumentName);
+            Assert.AreSame(expectedArgumentType, exception.ArgumentType);
+            Assert.AreSame(expectedInnerException, exception.InnerException);
+        }
+
+        [TestMethod]
+        public void WHEN_Instantiating_Message_ArgumentName_ArgumentType_InnerException_WHILE_AllArgumentAreNull_THEN_ThrowNoException()
+        {
+            // Act & Assert
+            ExceptionHelpers.ExpectNoException(() => new GenericArgumentException(null, null, null, null));
         }
     }
 }
