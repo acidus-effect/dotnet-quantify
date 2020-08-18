@@ -1,6 +1,6 @@
 ﻿namespace Quantify
 {
-    public static class ValueCalculatorFactory
+    internal static class ValueCalculatorFactory
     {
         public static ValueCalculator<TValue> Create<TValue>()
         {

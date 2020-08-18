@@ -9,11 +9,10 @@ namespace Quantify.UnitTests.TestQuantities
         private string unit = "SomeUnit";
         public Mock<UnitRepository<string, string>> UnitRepositoryMock { get; } = new Mock<UnitRepository<string, string>>();
         public Mock<ValueCalculator<string>> ValueCalculatorMock { get; } = new Mock<ValueCalculator<string>>();
-        public Mock<ValueConverter<string, string>> ValueConverterMock { get; }
+        public Mock<IValueConverter<string, string>> ValueConverterMock { get; } = new Mock<IValueConverter<string, string>>();
 
         private StringValueStringUnitQuantityBuilder()
         {
-            ValueConverterMock = new Mock<ValueConverter<string, string>>(UnitRepositoryMock.Object, ValueCalculatorMock.Object);
         }
 
         public static StringValueStringUnitQuantityBuilder NewInstance()
@@ -51,7 +50,7 @@ namespace Quantify.UnitTests.TestQuantities
             return this;
         }
 
-        public StringValueStringUnitQuantityBuilder MockValueConverter(Action<Mock<ValueConverter<string, string>>> mockCallback)
+        public StringValueStringUnitQuantityBuilder MockValueConverter(Action<Mock<IValueConverter<string, string>>> mockCallback)
         {
             if (mockCallback == null)
                 throw new ArgumentNullException(nameof(mockCallback));

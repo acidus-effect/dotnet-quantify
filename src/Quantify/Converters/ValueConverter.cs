@@ -2,7 +2,7 @@
 
 namespace Quantify
 {
-    public class ValueConverter<TValue, TUnit> : IValueConverter<TValue, TUnit>
+    internal class ValueConverter<TValue, TUnit> : IValueConverter<TValue, TUnit>
     {
         private readonly UnitRepository<TValue, TUnit> unitRepository;
         private readonly ValueCalculator<TValue> valueCalculator;
