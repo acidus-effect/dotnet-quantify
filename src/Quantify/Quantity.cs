@@ -45,6 +45,11 @@ namespace Quantify
             this.valueConverter = valueConverter ?? throw new ArgumentNullException(nameof(valueConverter));
         }
 
+        /// <summary>
+        /// Convert the quantity to a different unit.
+        /// </summary>
+        /// <param name="targetUnit">The unit this quantity should be converted to.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the converted value and the conversion target unit.</returns>
         public virtual TQuantity ToUnit(TUnit targetUnit)
         {
             if (targetUnit == null)

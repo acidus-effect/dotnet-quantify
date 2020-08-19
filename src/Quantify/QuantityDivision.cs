@@ -119,7 +119,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -134,7 +134,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -149,7 +149,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -164,7 +164,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -179,7 +179,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -194,7 +194,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -209,7 +209,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -224,7 +224,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>
@@ -239,7 +239,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Divide the value of this quantity with a given value.
+        /// Divide the value of the left hand side quantity with a given value.
         /// </summary>
         /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
         /// <param name="divisor">The divisor part in the calculation.</param>

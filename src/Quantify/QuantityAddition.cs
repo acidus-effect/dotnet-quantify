@@ -8,7 +8,7 @@ namespace Quantify
         /// Add the value of a quantity to the value of this quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity for which the value will be added to the value of this quantity.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation. The unit of the returned quantity will be the in the unit as this quantity.</returns>
+        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation. The returned quantity will be of the same unit as this quantity.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="termQuantity"/> is <code>null</code>.</exception>
         public virtual TQuantity Add(TQuantity termQuantity)
         {
@@ -20,7 +20,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -35,7 +35,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -46,7 +46,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -57,7 +57,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -68,7 +68,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -79,7 +79,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -90,7 +90,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -101,7 +101,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -112,7 +112,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to current quantity value.
+        /// Add a value to the current quantity value.
         /// </summary>
         /// <param name="term">The value to add.</param>
         /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
@@ -134,11 +134,11 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add the value of a quantity to the value of this quantity.
+        /// Add the value of the right hand side quantity to the value of the left hand side quantity.
         /// </summary>
         /// <param name="term1Quantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term2Quantity">The quantity of which the value will act as the second term in the calculation.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation. The unit of the returned quantity will be the same in the unit as the left hand side quantity <paramref name="term1Quantity"/>.</returns>
+        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation. The returned quantity will be of the same unit as the left hand side quantity <paramref name="term1Quantity"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="term1Quantity"/> is <code>null</code> -or- <paramref name="term2Quantity"/> is <code>null</code>.</exception>
         public static TQuantity operator +(Quantity<TValue, TUnit, TQuantity> term1Quantity, TQuantity term2Quantity)
         {
@@ -152,7 +152,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -167,7 +167,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -182,7 +182,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -197,7 +197,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -212,7 +212,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -227,7 +227,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -242,7 +242,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -257,7 +257,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
@@ -272,7 +272,7 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Add a value to the value of this quantity.
+        /// Add a given value to the value of the left hand side quantity.
         /// </summary>
         /// <param name="termQuantity">The quantity of which the value will act as the first term in the calculation.</param>
         /// <param name="term">The value to add.</param>
