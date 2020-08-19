@@ -5,12 +5,11 @@ namespace Quantify
     public partial class Quantity<TValue, TUnit, TQuantity>
     {
         /// <summary>
-        /// Returns a new <see cref="QuantityBase"/> with the current <see cref="Value"/> divided by a given divisor.
-        /// The <see cref="Unit"/> will remain the same.
+        /// Divide the value of this quantity with a given value.
         /// </summary>
-        /// <param name="divisor">The divisor to divide the current <see cref="Value"/> by.</param>
-        /// <returns>A new <see cref="QuantityBase"/> with the current <see cref="Value"/> divided by <paramref name="divisor"/>.</returns>
-        /// <exception cref="DivideByZeroException">Is thrown when there is an attempt to divide the <see cref="Value"/> by zero.</exception>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="divisor"/> is <code>null</code>.</exception>
         public virtual TQuantity DivideBy(TValue divisor)
         {
             if (divisor == null)
@@ -20,60 +19,112 @@ namespace Quantify
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(short divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(ushort divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(int divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(uint divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(long divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(ulong divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(double divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(decimal divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(float divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, short divisor)
         {
             if (dividendQuantity == null)
@@ -82,6 +133,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, ushort divisor)
         {
             if (dividendQuantity == null)
@@ -90,6 +148,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, int divisor)
         {
             if (dividendQuantity == null)
@@ -98,6 +163,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, uint divisor)
         {
             if (dividendQuantity == null)
@@ -106,6 +178,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, long divisor)
         {
             if (dividendQuantity == null)
@@ -114,6 +193,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, ulong divisor)
         {
             if (dividendQuantity == null)
@@ -122,6 +208,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, double divisor)
         {
             if (dividendQuantity == null)
@@ -130,6 +223,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, decimal divisor)
         {
             if (dividendQuantity == null)
@@ -138,6 +238,13 @@ namespace Quantify
             return dividendQuantity.DivideBy(divisor);
         }
 
+        /// <summary>
+        /// Divide the value of this quantity with a given value.
+        /// </summary>
+        /// <param name="dividendQuantity">The quantity of which the value will act as the dividend part in the calculation.</param>
+        /// <param name="divisor">The divisor part in the calculation.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result in the calculation.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="dividendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator /(Quantity<TValue, TUnit, TQuantity> dividendQuantity, float divisor)
         {
             if (dividendQuantity == null)

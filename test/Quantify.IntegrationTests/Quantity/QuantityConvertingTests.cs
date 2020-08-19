@@ -16,7 +16,7 @@ namespace Quantify.IntegrationTests.Quantity
             var expectedException = new UriFormatException();
 
             var unitRepositoryMock = new Mock<UnitRepository<double, string>>();
-            unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnit(It.IsAny<string>())).Throws(expectedException);
+            unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitData(It.IsAny<string>())).Throws(expectedException);
 
             var quantity = new TestQuantity(42, TestData.Centimetre, unitRepositoryMock.Object);
 

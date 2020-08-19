@@ -17,7 +17,7 @@ namespace Quantify.UnitTests.Repository
             var unitData = new BasicUnitData<double, string>(expectedValue, expectedUnit);
 
             // Assert
-            Assert.AreEqual(expectedValue, unitData.Value);
+            Assert.AreEqual(expectedValue, unitData.ConversionRate);
             Assert.AreEqual(expectedUnit, unitData.Unit);
         }
 

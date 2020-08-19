@@ -38,7 +38,7 @@ namespace Quantify.IntegrationTests.Quantity.Assets
 
             foreach (var unitData in unitDataDictionary)
             {
-                unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnit(It.Is<string>(unit => unit == unitData.Key))).Returns(CreateUnitData(unitData.Key, unitData.Value));
+                unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitData(It.Is<string>(unit => unit == unitData.Key))).Returns(CreateUnitData(unitData.Key, unitData.Value));
             }
 
             return unitRepositoryMock.Object;
@@ -47,7 +47,7 @@ namespace Quantify.IntegrationTests.Quantity.Assets
         private static UnitData<double, string> CreateUnitData(string unit, double value)
         {
             var unitDataMock = new Mock<UnitData<double, string>>();
-            unitDataMock.Setup(unitData => unitData.Value).Returns(value);
+            unitDataMock.Setup(unitData => unitData.ConversionRate).Returns(value);
             unitDataMock.Setup(unitData => unitData.Unit).Returns(unit);
             return unitDataMock.Object;
         }

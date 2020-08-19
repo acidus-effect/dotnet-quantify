@@ -4,6 +4,12 @@ namespace Quantify
 {
     public partial class Quantity<TValue, TUnit, TQuantity>
     {
+        /// <summary>
+        /// Subtract the value of a quantity from the value of this quantity.
+        /// </summary>
+        /// <param name="subtrahendQuantity">The quantity for which the value will be subtracted from to value of this quantity.</param>
+        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation. The unit of the returned quantity will be the in the unit as this quantity.</returns>
+        /// <exception cref="ArgumentNullException"><paramref name="termQuantity"/> is <code>null</code>.</exception>
         public virtual TQuantity Subtract(TQuantity subtrahendQuantity)
         {
             if (subtrahendQuantity == null)
