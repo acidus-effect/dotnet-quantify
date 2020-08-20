@@ -4,9 +4,25 @@ using System.Reflection;
 
 namespace Quantify
 {
+    /// <summary>
+    /// Represents a quantity with a value and a unit.
+    /// </summary>
+    /// <remarks>
+    /// A quantity is represented by a value and a unit, and supports a wide range to operations like basic arithmetics, comparision and conversion between different units of the same kind.
+    /// </remarks>
+    /// <typeparam name="TValue">The type of the value part.</typeparam>
+    /// <typeparam name="TUnit">The type of the unit part.</typeparam>
+    /// <typeparam name="TQuantity">The type of the inheriting class.</typeparam>
     public abstract partial class Quantity<TValue, TUnit, TQuantity> : IQuantity<TValue, TUnit>, IEquatable<Quantity<TValue, TUnit, TQuantity>> where TQuantity : Quantity<TValue, TUnit, TQuantity>
     {
+        /// <summary>
+        /// The value.
+        /// </summary>
         public TValue Value { get; }
+
+        /// <summary>
+        /// The unit of the <see cref="Value"/>.
+        /// </summary>
         public TUnit Unit { get; }
 
         private readonly UnitRepository<TValue, TUnit> unitRepository;
@@ -48,8 +64,12 @@ namespace Quantify
         /// <summary>
         /// Convert the quantity to a different unit.
         /// </summary>
-        /// <param name="targetUnit">The unit this quantity should be converted to.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the converted value and the conversion target unit.</returns>
+        /// <param name="targetUnit">The unit the current quantity should be converted to.</param>
+        /// <returns>
+        /// A <see cref="TQuantity"/> with the converted value and the conversion target unit.
+        /// If the <paramref name="targetUnit"/> is the same as the current <see cref="Unit"/>, the same instance will be returned and no conversion will be done.
+        /// </returns>
+        /// <exception cref="ArgumentNullException"><paramref name="targetUnit"/> is <code>null</code>.</exception>
         public virtual TQuantity ToUnit(TUnit targetUnit)
         {
             if (targetUnit == null)
@@ -65,11 +85,17 @@ namespace Quantify
         private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
         private TQuantity CreateInstance(TValue value, TUnit unit) => (TQuantity)Activator.CreateInstance(typeof(TQuantity), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { value, unit, unitRepository, valueCalculator, valueConverter }, null);
 
+        /// <inheritdoc />
         public override bool Equals(object other)
         {
             return Equals(other as Quantity<TValue, TUnit, TQuantity>);
         }
 
+        /// <summary>
+        /// Determines whether the specified quantity is equal to the current quantity.
+        /// </summary>
+        /// <param name="other">The quantity to compare with the current quantity.</param>
+        /// <returns><code>true</code> if the specified quantity is equal to the current quantity; otherwise, <code>false</code>.</returns>
         public bool Equals(Quantity<TValue, TUnit, TQuantity> other)
         {
             if (other == null)
@@ -87,6 +113,7 @@ namespace Quantify
             return true;
         }
 
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             int hashCode = -177567199;

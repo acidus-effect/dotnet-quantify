@@ -5,10 +5,10 @@ namespace Quantify
     public partial class Quantity<TValue, TUnit, TQuantity>
     {
         /// <summary>
-        /// Subtract the value of a quantity from the value of this quantity.
+        /// Subtract the value of a quantity from the value of the current quantity.
         /// </summary>
-        /// <param name="subtrahendQuantity">The quantity for which the value will be subtracted from to value of this quantity.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation. The returned quantity will be of the same unit as this quantity.</returns>
+        /// <param name="subtrahendQuantity">The quantity for which the value will be subtracted from to value of the current quantity.</param>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation. The returned quantity will be of the same unit as the current quantity.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="termQuantity"/> is <code>null</code>.</exception>
         public virtual TQuantity Subtract(TQuantity subtrahendQuantity)
         {
@@ -20,10 +20,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="subtrahend"/> is <code>null</code>.</exception>
         public virtual TQuantity Subtract(TValue subtrahend)
         {
@@ -35,10 +35,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(short subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -46,10 +46,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(ushort subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -57,10 +57,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(int subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -68,10 +68,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(uint subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -79,10 +79,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(long subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -90,10 +90,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(ulong subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -101,10 +101,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(double subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -112,10 +112,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(decimal subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -123,10 +123,10 @@ namespace Quantify
         }
 
         /// <summary>
-        /// Subtract a value from the value of this quantity.
+        /// Subtract a value from the value of the current quantity.
         /// </summary>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(float subtrahend)
         {
             var difference = valueCalculator.Subtract(Value, subtrahend);
@@ -138,7 +138,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahendQuantity">The quantity of which the value will act as the subtrahend part in the calculation.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation. The returned quantity will be of the same unit as the left hand side quantity <paramref name="term1Quantity"/>.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation. The returned quantity will be of the same unit as the left hand side quantity <paramref name="term1Quantity"/>.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code> -or- <paramref name="subtrahendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, TQuantity subtrahendQuantity)
         {
@@ -156,7 +156,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, short subtrahend)
         {
@@ -171,7 +171,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, ushort subtrahend)
         {
@@ -186,7 +186,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, int subtrahend)
         {
@@ -201,7 +201,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, uint subtrahend)
         {
@@ -216,7 +216,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, long subtrahend)
         {
@@ -231,7 +231,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, ulong subtrahend)
         {
@@ -246,7 +246,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, double subtrahend)
         {
@@ -261,7 +261,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, decimal subtrahend)
         {
@@ -276,7 +276,7 @@ namespace Quantify
         /// </summary>
         /// <param name="minuendQuantity">The quantity of which the value will act as the minuted part in the calculation.</param>
         /// <param name="subtrahend">The value to subtract.</param>
-        /// <returns>A new <see cref="TQuantity"/> with the result of the calculation.</returns>
+        /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         /// <exception cref="ArgumentNullException"><paramref name="minuendQuantity"/> is <code>null</code>.</exception>
         public static TQuantity operator -(Quantity<TValue, TUnit, TQuantity> minuendQuantity, float subtrahend)
         {

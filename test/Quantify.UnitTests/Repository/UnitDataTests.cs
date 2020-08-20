@@ -29,7 +29,7 @@ namespace Quantify.UnitTests.Repository
             const string expectedUnit = "SomeUnit";
 
             // Act & Assert
-            ExceptionHelpers.ExpectArgumentNullException("value", () => new BasicUnitData<string, string>(null, expectedUnit));
+            ExceptionHelpers.ExpectArgumentNullException("conversionRate", () => new BasicUnitData<string, string>(null, expectedUnit));
             ExceptionHelpers.ExpectArgumentNullException("unit", () => new BasicUnitData<string, string>(expectedValue, null));
         }
     }
