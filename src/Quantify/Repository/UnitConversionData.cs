@@ -5,7 +5,7 @@
     /// </summary>
     /// <typeparam name="TValue">The type of the conversion rate.</typeparam>
     /// <typeparam name="TUnit">The type of the unit.</typeparam>
-    public interface UnitData<TValue, TUnit>
+    public interface UnitConversionData<TValue, TUnit>
     {
         /// <summary>
         /// The conversion rate compared to the base unit.

@@ -14,7 +14,7 @@ namespace Quantify.UnitTests.Repository
             const string expectedUnit = "SomeUnit";
 
             // Act
-            var unitData = new BasicUnitData<double, string>(expectedValue, expectedUnit);
+            var unitData = new BasicUnitConversionData<double, string>(expectedValue, expectedUnit);
 
             // Assert
             Assert.AreEqual(expectedValue, unitData.ConversionRate);
@@ -29,8 +29,8 @@ namespace Quantify.UnitTests.Repository
             const string expectedUnit = "SomeUnit";
 
             // Act & Assert
-            ExceptionHelpers.ExpectArgumentNullException("conversionRate", () => new BasicUnitData<string, string>(null, expectedUnit));
-            ExceptionHelpers.ExpectArgumentNullException("unit", () => new BasicUnitData<string, string>(expectedValue, null));
+            ExceptionHelpers.ExpectArgumentNullException("conversionRate", () => new BasicUnitConversionData<string, string>(null, expectedUnit));
+            ExceptionHelpers.ExpectArgumentNullException("unit", () => new BasicUnitConversionData<string, string>(expectedValue, null));
         }
     }
 }

@@ -2,13 +2,13 @@
 {
     internal class TestQuantity : Quantity<double, string, TestQuantity>
     {
-        internal TestQuantity(double value, string unit, UnitRepository<double, string> unitRepository, ValueCalculator<double> valueCalculator, IValueConverter<double, string> valueConverter)
+        internal TestQuantity(double value, string unit, UnitConversionDataRepository<string> unitRepository, ValueCalculator<double> valueCalculator, IValueConverter<double, string> valueConverter)
             : base(value, unit, unitRepository, valueCalculator, valueConverter)
         {
 
         }
 
-        internal TestQuantity(double value, string unit, UnitRepository<double, string> unitRepository)
+        internal TestQuantity(double value, string unit, UnitConversionDataRepository<string> unitRepository)
             : base(value, unit, unitRepository)
         {
 

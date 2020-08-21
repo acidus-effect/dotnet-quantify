@@ -5,7 +5,7 @@ namespace Quantify.UnitTests.Converters
 {
     internal class ValueConverterBuilder<TValue, TUnit>
     {
-        public Mock<UnitRepository<TValue, TUnit>> UnitRepositoryMock { get; } = new Mock<UnitRepository<TValue, TUnit>>();
+        public Mock<UnitConversionDataRepository<TUnit>> UnitRepositoryMock { get; } = new Mock<UnitConversionDataRepository<TUnit>>();
         public Mock<ValueCalculator<TValue>> ValueCalculatorMock { get; } = new Mock<ValueCalculator<TValue>>();
 
         private ValueConverterBuilder() { }
@@ -15,7 +15,7 @@ namespace Quantify.UnitTests.Converters
             return new ValueConverterBuilder<TValue, TUnit>();
         }
 
-        public ValueConverterBuilder<TValue, TUnit> MockUnitRepository(Action<Mock<UnitRepository<TValue, TUnit>>> mockingCallback)
+        public ValueConverterBuilder<TValue, TUnit> MockUnitRepository(Action<Mock<UnitConversionDataRepository<TUnit>>> mockingCallback)
         {
             if (mockingCallback == null)
                 throw new ArgumentNullException(nameof(mockingCallback));

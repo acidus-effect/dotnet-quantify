@@ -25,11 +25,11 @@ namespace Quantify
         /// </summary>
         public TUnit Unit { get; }
 
-        private readonly UnitRepository<TValue, TUnit> unitRepository;
+        private readonly UnitConversionDataRepository<TUnit> unitRepository;
         private readonly ValueCalculator<TValue> valueCalculator;
         private readonly IValueConverter<TValue, TUnit> valueConverter;
 
-        protected Quantity(TValue value, TUnit unit, UnitRepository<TValue, TUnit> unitRepository)
+        protected Quantity(TValue value, TUnit unit, UnitConversionDataRepository<TUnit> unitRepository)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
@@ -45,7 +45,7 @@ namespace Quantify
             this.valueConverter = new ValueConverter<TValue, TUnit>(unitRepository, valueCalculator);
         }
 
-        protected Quantity(TValue value, TUnit unit, UnitRepository<TValue, TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, IValueConverter<TValue, TUnit> valueConverter)
+        protected Quantity(TValue value, TUnit unit, UnitConversionDataRepository<TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, IValueConverter<TValue, TUnit> valueConverter)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));

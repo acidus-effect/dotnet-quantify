@@ -11,7 +11,7 @@ namespace Quantify.UnitTests.Converters
         public void WHEN_Instantiating_WHILE_ArgumentIsNull_THEN_ThrowException()
         {
             // Arrange
-            UnitRepository<double, string> unitRepository = new Mock<UnitRepository<double, string>>().Object;
+            UnitConversionDataRepository<string> unitRepository = new Mock<UnitConversionDataRepository<string>>().Object;
             ValueCalculator<double> valueCalculator = new Mock<ValueCalculator<double>>().Object;
 
             // Act and Assert
@@ -51,15 +51,15 @@ namespace Quantify.UnitTests.Converters
 
             const double divisionResult = 1337;
 
-            var sourceUnitRateDataMock = new Mock<UnitData<double, string>>();
+            var sourceUnitRateDataMock = new Mock<UnitConversionData<double, string>>();
             sourceUnitRateDataMock.Setup(unitData => unitData.ConversionRate).Returns(sourceUnitRate);
 
-            var targetUnitRateDataMock = new Mock<UnitData<double, string>>();
+            var targetUnitRateDataMock = new Mock<UnitConversionData<double, string>>();
             targetUnitRateDataMock.Setup(unitData => unitData.ConversionRate).Returns(targetUnitRate);
 
             var valueConverterBuilder = ValueConverterBuilder<double, string>.NewInstance()
-                .MockUnitRepository(mock => mock.Setup(unitRepository => unitRepository.GetUnitData(It.Is<string>(unit => unit == sourceUnit))).Returns(sourceUnitRateDataMock.Object))
-                .MockUnitRepository(mock => mock.Setup(unitRepository => unitRepository.GetUnitData(It.Is<string>(unit => unit == targetUnit))).Returns(targetUnitRateDataMock.Object))
+                .MockUnitRepository(mock => mock.Setup(unitRepository => unitRepository.GetUnitConversionData(It.Is<string>(unit => unit == sourceUnit))).Returns(sourceUnitRateDataMock.Object))
+                .MockUnitRepository(mock => mock.Setup(unitRepository => unitRepository.GetUnitConversionData(It.Is<string>(unit => unit == targetUnit))).Returns(targetUnitRateDataMock.Object))
                 .MockValueCalculator(mock => mock.Setup(valueCalculator => valueCalculator.Divide(It.Is<double>(sourceRate => sourceRate == sourceUnitRate), It.Is<double>(targetRate => targetRate == targetUnitRate))).Returns(divisionResult))
                 .MockValueCalculator(mock => mock.Setup(valueCalculator => valueCalculator.Multiply(It.Is<double>(value => value == sourceValue), It.Is<double>(value => value == divisionResult))).Returns(targetValue));
 
@@ -70,8 +70,8 @@ namespace Quantify.UnitTests.Converters
 
             // Assert
             Assert.AreEqual(targetValue, convertedValue);
-            valueConverterBuilder.UnitRepositoryMock.Verify(unitRepository => unitRepository.GetUnitData(It.Is<string>(unit => unit == sourceUnit)), Times.Once);
-            valueConverterBuilder.UnitRepositoryMock.Verify(unitRepository => unitRepository.GetUnitData(It.Is<string>(unit => unit == targetUnit)), Times.Once);
+            valueConverterBuilder.UnitRepositoryMock.Verify(unitRepository => unitRepository.GetUnitConversionData(It.Is<string>(unit => unit == sourceUnit)), Times.Once);
+            valueConverterBuilder.UnitRepositoryMock.Verify(unitRepository => unitRepository.GetUnitConversionData(It.Is<string>(unit => unit == targetUnit)), Times.Once);
             valueConverterBuilder.ValueCalculatorMock.Verify(verifyCalculator => verifyCalculator.Divide(It.Is<double>(sourceRate => sourceRate == sourceUnitRate), It.Is<double>(targetRate => targetRate == targetUnitRate)), Times.Once);
             valueConverterBuilder.ValueCalculatorMock.Verify(verifyCalculator => verifyCalculator.Multiply(It.Is<double>(value => value == sourceValue), It.Is<double>(value => value == divisionResult)), Times.Once);
         }

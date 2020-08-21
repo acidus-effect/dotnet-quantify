@@ -7,7 +7,7 @@ namespace Quantify
     /// </summary>
     /// <typeparam name="TValue">The type of the conversion rate.</typeparam>
     /// <typeparam name="TUnit">The type of the unit.</typeparam>
-    public class BasicUnitData<TValue, TUnit> : UnitData<TValue, TUnit>
+    public class BasicUnitConversionData<TValue, TUnit> : UnitConversionData<TValue, TUnit>
     {
         /// <inheritdoc/>
         public virtual TValue ConversionRate { get; }
@@ -20,7 +20,7 @@ namespace Quantify
         /// <param name="conversionRate">The conversion rate of the unit.</param>
         /// <param name="unit">The unit.</param>
         /// <exception cref="ArgumentNullException"><paramref name="conversionRate"/> is <code>null</code> -or- <paramref name="unit"/> is <code>null</code>.</exception>
-        public BasicUnitData(TValue conversionRate, TUnit unit)
+        public BasicUnitConversionData(TValue conversionRate, TUnit unit)
         {
             if (conversionRate == null)
                 throw new ArgumentNullException(nameof(conversionRate));
