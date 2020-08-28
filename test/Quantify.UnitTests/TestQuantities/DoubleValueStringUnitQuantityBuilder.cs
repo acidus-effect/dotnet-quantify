@@ -7,9 +7,9 @@ namespace Quantify.UnitTests.TestQuantities
     {
         private double value = 42;
         private string unit = "SomeUnit";
-        public Mock<UnitConversionDataRepository<string>> UnitRepositoryMock { get; } = new Mock<UnitConversionDataRepository<string>>();
+        public Mock<UnitRepository<string>> UnitRepositoryMock { get; } = new Mock<UnitRepository<string>>();
         public Mock<ValueCalculator<double>> ValueCalculatorMock { get; } = new Mock<ValueCalculator<double>>();
-        public Mock<IValueConverter<double, string>> ValueConverterMock { get; } = new Mock<IValueConverter<double, string>>();
+        public Mock<ValueConverter<double, string>> ValueConverterMock { get; } = new Mock<ValueConverter<double, string>>();
 
         public static DoubleValueStringUnitQuantityBuilder NewInstance()
         {
@@ -28,7 +28,7 @@ namespace Quantify.UnitTests.TestQuantities
             return this;
         }
 
-        public DoubleValueStringUnitQuantityBuilder MockUnitRepository(Action<Mock<UnitConversionDataRepository<string>>> mockCallback)
+        public DoubleValueStringUnitQuantityBuilder MockUnitRepository(Action<Mock<UnitRepository<string>>> mockCallback)
         {
             if (mockCallback == null)
                 throw new ArgumentNullException(nameof(mockCallback));
@@ -46,7 +46,7 @@ namespace Quantify.UnitTests.TestQuantities
             return this;
         }
 
-        public DoubleValueStringUnitQuantityBuilder MockValueConverter(Action<Mock<IValueConverter<double, string>>> mockCallback)
+        public DoubleValueStringUnitQuantityBuilder MockValueConverter(Action<Mock<ValueConverter<double, string>>> mockCallback)
         {
             if (mockCallback == null)
                 throw new ArgumentNullException(nameof(mockCallback));

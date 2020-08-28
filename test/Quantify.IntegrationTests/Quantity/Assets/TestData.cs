@@ -32,24 +32,16 @@ namespace Quantify.IntegrationTests.Quantity.Assets
             { Kilometre, KilometreUnitValue }
         };
 
-        public static UnitConversionDataRepository<string> CreateUnitRepository()
+        public static UnitRepository<string> CreateUnitRepository()
         {
-            var unitRepositoryMock = new Mock<UnitConversionDataRepository<string>>();
+            var unitRepositoryMock = new Mock<UnitRepository<string>>();
 
             foreach (var unitData in unitDataDictionary)
             {
-                unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitConversionData(It.Is<string>(unit => unit == unitData.Key))).Returns(CreateUnitData(unitData.Key, unitData.Value));
+                unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitConversionRate(It.Is<string>(unit => unit == unitData.Key))).Returns(unitData.Value);
             }
 
             return unitRepositoryMock.Object;
-        }
-
-        private static UnitConversionData<double, string> CreateUnitData(string unit, double value)
-        {
-            var unitDataMock = new Mock<UnitConversionData<double, string>>();
-            unitDataMock.Setup(unitData => unitData.ConversionRate).Returns(value);
-            unitDataMock.Setup(unitData => unitData.Unit).Returns(unit);
-            return unitDataMock.Object;
         }
     }
 }

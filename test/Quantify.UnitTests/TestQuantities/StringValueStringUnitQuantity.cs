@@ -2,13 +2,13 @@
 {
     public class StringValueStringUnitQuantity : Quantity<string, string, StringValueStringUnitQuantity>
     {
-        public StringValueStringUnitQuantity(string value, string unit, UnitConversionDataRepository<string> unitRepository)
+        public StringValueStringUnitQuantity(string value, string unit, UnitRepository<string> unitRepository)
             : base(value, unit, unitRepository)
         {
 
         }
 
-        public StringValueStringUnitQuantity(string value, string unit, UnitConversionDataRepository<string> unitRepository, ValueCalculator<string> valueCalculator, IValueConverter<string, string> valueConverter)
+        public StringValueStringUnitQuantity(string value, string unit, UnitRepository<string> unitRepository, ValueCalculator<string> valueCalculator, ValueConverter<string, string> valueConverter)
             : base(value, unit, unitRepository, valueCalculator, valueConverter)
         {
 

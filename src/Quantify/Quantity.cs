@@ -25,11 +25,11 @@ namespace Quantify
         /// </summary>
         public TUnit Unit { get; }
 
-        private readonly UnitConversionDataRepository<TUnit> unitRepository;
+        private readonly UnitRepository<TUnit> unitRepository;
         private readonly ValueCalculator<TValue> valueCalculator;
-        private readonly IValueConverter<TValue, TUnit> valueConverter;
+        private readonly ValueConverter<TValue, TUnit> valueConverter;
 
-        protected Quantity(TValue value, TUnit unit, UnitConversionDataRepository<TUnit> unitRepository)
+        protected Quantity(TValue value, TUnit unit, UnitRepository<TUnit> unitRepository)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
@@ -42,10 +42,10 @@ namespace Quantify
 
             this.unitRepository = unitRepository ?? throw new ArgumentNullException(nameof(unitRepository));
             this.valueCalculator = ValueCalculatorFactory.Create<TValue>();
-            this.valueConverter = new ValueConverter<TValue, TUnit>(unitRepository, valueCalculator);
+            this.valueConverter = new ValueConverterFactory<TValue, TUnit>(unitRepository, valueCalculator).Create();
         }
 
-        protected Quantity(TValue value, TUnit unit, UnitConversionDataRepository<TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, IValueConverter<TValue, TUnit> valueConverter)
+        protected Quantity(TValue value, TUnit unit, UnitRepository<TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, ValueConverter<TValue, TUnit> valueConverter)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
@@ -61,57 +61,8 @@ namespace Quantify
             this.valueConverter = valueConverter ?? throw new ArgumentNullException(nameof(valueConverter));
         }
 
-        /// <summary>
-        /// Convert the quantity to a different unit.
-        /// </summary>
-        /// <param name="targetUnit">The unit the current quantity should be converted to.</param>
-        /// <returns>
-        /// A <see cref="TQuantity"/> with the converted value and the conversion target unit.
-        /// If the <paramref name="targetUnit"/> is the same as the current <see cref="Unit"/>, the same instance will be returned and no conversion will be done.
-        /// </returns>
-        /// <exception cref="ArgumentNullException"><paramref name="targetUnit"/> is <code>null</code>.</exception>
-        public virtual TQuantity ToUnit(TUnit targetUnit)
-        {
-            if (targetUnit == null)
-                throw new ArgumentNullException(nameof(targetUnit));
-
-            if (Unit.Equals(targetUnit))
-                return this as TQuantity;
-
-            var convertedValue = valueConverter.ConvertValueToUnit(Value, Unit, targetUnit);
-            return CreateInstance(convertedValue, targetUnit);
-        }
-
         private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
         private TQuantity CreateInstance(TValue value, TUnit unit) => (TQuantity)Activator.CreateInstance(typeof(TQuantity), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { value, unit, unitRepository, valueCalculator, valueConverter }, null);
-
-        /// <inheritdoc />
-        public override bool Equals(object other)
-        {
-            return Equals(other as Quantity<TValue, TUnit, TQuantity>);
-        }
-
-        /// <summary>
-        /// Determines whether the specified quantity is equal to the current quantity.
-        /// </summary>
-        /// <param name="other">The quantity to compare with the current quantity.</param>
-        /// <returns><code>true</code> if the specified quantity is equal to the current quantity; otherwise, <code>false</code>.</returns>
-        public bool Equals(Quantity<TValue, TUnit, TQuantity> other)
-        {
-            if (other == null)
-                return false;
-
-            if (ReferenceEquals(this, other))
-                return true;
-
-            if (Value.Equals(other.Value) == false)
-                return false;
-
-            if (Unit.Equals(other.Unit) == false)
-                return false;
-
-            return true;
-        }
 
         /// <inheritdoc />
         public override int GetHashCode()

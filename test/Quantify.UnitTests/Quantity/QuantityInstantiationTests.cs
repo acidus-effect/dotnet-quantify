@@ -14,9 +14,9 @@ namespace Quantify.UnitTests.Quantity
             // Arrange
             const double expectedValue = 1.547;
             const string expectedUnit = "Hello";
-            var unitRepository = new Mock<UnitConversionDataRepository<string>>().Object;
+            var unitRepository = new Mock<UnitRepository<string>>().Object;
             var valueCalculator = new Mock<ValueCalculator<double>>().Object;
-            var valueConverter = new Mock<ValueConverter<double, string>>(unitRepository, valueCalculator).Object;
+            var valueConverter = new Mock<ValueConverter<double, string>>().Object;
 
             // Act
             var quantity = new DoubleValueStringUnitQuantity(expectedValue, expectedUnit, unitRepository, valueCalculator, valueConverter);
@@ -32,9 +32,9 @@ namespace Quantify.UnitTests.Quantity
             // Arrange
             const string value = "Hello";
             const string unit = "World";
-            var unitRepository = new Mock<UnitConversionDataRepository<string>>().Object;
+            var unitRepository = new Mock<UnitRepository<string>>().Object;
             var valueCalculator = new Mock<ValueCalculator<string>>().Object;
-            var valueConverter = new Mock<ValueConverter<string, string>>(unitRepository, valueCalculator).Object;
+            var valueConverter = new Mock<ValueConverter<string, string>>().Object;
 
             // Act & Assert
             ExceptionHelpers.ExpectArgumentNullException("value", () => new StringValueStringUnitQuantity(null, unit, unitRepository, valueCalculator, valueConverter));

@@ -15,9 +15,9 @@ namespace Quantify.UnitTests.Quantity
             const double value = 12;
             const string unit = "Some Unit";
 
-            var unitRepository = new Mock<UnitConversionDataRepository<string>>().Object;
+            var unitRepository = new Mock<UnitRepository<string>>().Object;
             var valueCalculator = new Mock<ValueCalculator<double>>().Object;
-            var valueConverter = new Mock<ValueConverter<double, string>>(unitRepository, valueCalculator).Object;
+            var valueConverter = new Mock<ValueConverter<double, string>>().Object;
 
             var quantity = new DoubleValueStringUnitQuantity(value, unit, unitRepository, valueCalculator, valueConverter);
 
@@ -63,9 +63,9 @@ namespace Quantify.UnitTests.Quantity
             const double value = 12;
             const string unit = "Some Unit";
 
-            var unitRepository = new Mock<UnitConversionDataRepository<string>>().Object;
+            var unitRepository = new Mock<UnitRepository<string>>().Object;
             var valueCalculator = new Mock<ValueCalculator<double>>().Object;
-            var valueConverter = new Mock<ValueConverter<double, string>>(unitRepository, valueCalculator).Object;
+            var valueConverter = new Mock<ValueConverter<double, string>>().Object;
 
             var quantity = new DoubleValueStringUnitQuantity(value, unit, unitRepository, valueCalculator, valueConverter);
 
