@@ -24,16 +24,16 @@ namespace Quantify
             if (sourceUnit.Equals(targetUnit))
                 return value;
 
-            var sourceUnitConversionRate = unitRepository.GetUnitConversionRate(sourceUnit);
-            var targetUnitConversionRate = unitRepository.GetUnitConversionRate(targetUnit);
+            var sourceUnitConversionValue = unitRepository.GetUnitConversionValue(sourceUnit);
+            var targetUnitConversionValue = unitRepository.GetUnitConversionValue(targetUnit);
 
-            if (sourceUnitConversionRate.HasValue == false)
+            if (sourceUnitConversionValue.HasValue == false)
                 throw new UnitNotFoundException<TUnit>(sourceUnit);
 
-            if (targetUnitConversionRate.HasValue == false)
+            if (targetUnitConversionValue.HasValue == false)
                 throw new UnitNotFoundException<TUnit>(targetUnit);
 
-            return valueCalculator.Multiply(value, sourceUnitConversionRate.Value / targetUnitConversionRate.Value);
+            return valueCalculator.Multiply(value, sourceUnitConversionValue.Value / targetUnitConversionValue.Value);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Quantify.IntegrationTests.Quantity.Assets
 
             foreach (var unitData in unitDataDictionary)
             {
-                unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitConversionRate(It.Is<string>(unit => unit == unitData.Key))).Returns(unitData.Value);
+                unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitConversionValue(It.Is<string>(unit => unit == unitData.Key))).Returns(unitData.Value);
             }
 
             return unitRepositoryMock.Object;

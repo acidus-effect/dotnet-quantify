@@ -81,14 +81,14 @@ namespace Quantify.UnitTests.Converters
             const decimal expectedTargetValue = 456;
             const string targetUnit = "Target unit";
 
-            const decimal sourceUnitConversionRate = 1337;
-            const decimal targetUnitConversionRate = 42;
+            const decimal sourceUnitConversionValue = 1337;
+            const decimal targetUnitConversionValue = 42;
 
-            const decimal divisionResult = sourceUnitConversionRate / targetUnitConversionRate;
+            const decimal divisionResult = sourceUnitConversionValue / targetUnitConversionValue;
 
             var unitRepositoryMock = new Mock<UnitRepository<string>>();
-            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionRate(It.Is<string>(unit => unit == sourceUnit))).Returns(sourceUnitConversionRate);
-            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionRate(It.Is<string>(unit => unit == targetUnit))).Returns(targetUnitConversionRate);
+            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == sourceUnit))).Returns(sourceUnitConversionValue);
+            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == targetUnit))).Returns(targetUnitConversionValue);
 
             var valueCalculatorMock = new Mock<ValueCalculator<decimal>>();
             valueCalculatorMock.Setup(calculator => calculator.Multiply(It.Is<decimal>(value => value == sourceValue), It.Is<decimal>(value => value == divisionResult))).Returns(expectedTargetValue);
@@ -101,8 +101,8 @@ namespace Quantify.UnitTests.Converters
             // Assert
             Assert.AreEqual(expectedTargetValue, actualTargetValue);
 
-            unitRepositoryMock.Verify(repository => repository.GetPreciseUnitConversionRate(It.Is<string>(unit => unit == sourceUnit)), Times.Once);
-            unitRepositoryMock.Verify(repository => repository.GetPreciseUnitConversionRate(It.Is<string>(unit => unit == targetUnit)), Times.Once);
+            unitRepositoryMock.Verify(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == sourceUnit)), Times.Once);
+            unitRepositoryMock.Verify(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == targetUnit)), Times.Once);
 
             valueCalculatorMock.Verify(calculator => calculator.Multiply(It.Is<decimal>(value => value == sourceValue), It.Is<decimal>(value => value == divisionResult)), Times.Once);
         }
@@ -116,7 +116,7 @@ namespace Quantify.UnitTests.Converters
 
             // Arrange
             var unitRepositoryMock = new Mock<UnitRepository<string>>();
-            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionRate(It.Is<string>(unit => unit == sourceUnit))).Returns((decimal?) null);
+            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == sourceUnit))).Returns((decimal?) null);
 
             var valueCalculatorMock = new Mock<ValueCalculator<decimal>>();
 
@@ -138,8 +138,8 @@ namespace Quantify.UnitTests.Converters
 
             // Arrange
             var unitRepositoryMock = new Mock<UnitRepository<string>>();
-            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionRate(It.Is<string>(unit => unit == sourceUnit))).Returns(0);
-            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionRate(It.Is<string>(unit => unit == targetUnit))).Returns((decimal?)null);
+            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == sourceUnit))).Returns(0);
+            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == targetUnit))).Returns((decimal?)null);
 
             var valueCalculatorMock = new Mock<ValueCalculator<decimal>>();
 
