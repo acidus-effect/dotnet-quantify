@@ -2,8 +2,6 @@
 using Moq;
 using Quantify.Test.Assets;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Quantify.UnitTests.Converters
 {

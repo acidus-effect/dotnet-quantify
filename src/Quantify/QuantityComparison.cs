@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Quantify
+﻿namespace Quantify
 {
     public partial class Quantity<TValue, TUnit, TQuantity>
     {

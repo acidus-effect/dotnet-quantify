@@ -2,8 +2,6 @@
 using Moq;
 using Quantify.Test.Assets;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Quantify.UnitTests.Converters
 {
@@ -116,7 +114,7 @@ namespace Quantify.UnitTests.Converters
 
             // Arrange
             var unitRepositoryMock = new Mock<UnitRepository<string>>();
-            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == sourceUnit))).Returns((decimal?) null);
+            unitRepositoryMock.Setup(repository => repository.GetPreciseUnitConversionValue(It.Is<string>(unit => unit == sourceUnit))).Returns((decimal?)null);
 
             var valueCalculatorMock = new Mock<ValueCalculator<decimal>>();
 
