@@ -12,5 +12,10 @@
             : base(value, unit, unitRepository, valueCalculator, valueConverter)
         {
         }
+
+        protected override DoubleValueStringUnitQuantity CreateInstance(double value, string unit, UnitRepository<string> unitRepository, ValueCalculator<double> valueCalculator, ValueConverter<double, string> valueConverter)
+        {
+            return new DoubleValueStringUnitQuantity(value, unit, unitRepository, valueCalculator, valueConverter);
+        }
     }
 }

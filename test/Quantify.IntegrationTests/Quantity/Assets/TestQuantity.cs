@@ -19,5 +19,10 @@
             var unitRepository = TestData.CreateUnitRepository();
             return new TestQuantity(value, unit, unitRepository);
         }
+
+        protected override TestQuantity CreateInstance(double value, string unit, UnitRepository<string> unitRepository, ValueCalculator<double> valueCalculator, ValueConverter<double, string> valueConverter)
+        {
+            return new TestQuantity(value, unit, unitRepository, valueCalculator, valueConverter);
+        }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Quantify
 {
@@ -7,7 +6,6 @@ namespace Quantify
     /// Exception thrown to indicate that a quantity unit was not found.
     /// </summary>
     /// <typeparam name="TUnit">The type of the unit that was not found.</typeparam>
-    [Serializable]
     public class UnitNotFoundException<TUnit> : Exception
     {
         private const string DefaultMessage = "No data was found for the unit.";
@@ -24,16 +22,6 @@ namespace Quantify
         public UnitNotFoundException(TUnit unit) : base(DefaultMessage)
         {
             Unit = unit;
-        }
-
-        /// <summary>
-        /// Constructor provided for serialization purposes.
-        /// </summary>
-        /// <param name="info">Serialization information</param>
-        /// <param name="context">Context</param>
-        protected UnitNotFoundException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
         }
     }
 }

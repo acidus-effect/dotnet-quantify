@@ -9,21 +9,6 @@ namespace Quantify
         /// </summary>
         /// <param name="multiplier">The multiplier part in the calculation.</param>
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="multiplier"/> is <code>null</code>.</exception>
-        public virtual TQuantity MultiplyWith(TValue multiplier)
-        {
-            if (multiplier == null)
-                throw new ArgumentNullException(nameof(multiplier));
-
-            var product = valueCalculator.Multiply(Value, multiplier);
-            return CreateInstance(product);
-        }
-
-        /// <summary>
-        /// Multiply the value of the current quantity with a given value.
-        /// </summary>
-        /// <param name="multiplier">The multiplier part in the calculation.</param>
-        /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(short multiplier)
         {
             var product = valueCalculator.Multiply(Value, multiplier);

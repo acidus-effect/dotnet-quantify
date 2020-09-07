@@ -13,5 +13,10 @@
         {
 
         }
+
+        protected override StringValueStringUnitQuantity CreateInstance(string value, string unit, UnitRepository<string> unitRepository, ValueCalculator<string> valueCalculator, ValueConverter<string, string> valueConverter)
+        {
+            return new StringValueStringUnitQuantity(value, unit, unitRepository, valueCalculator, valueConverter);
+        }
     }
 }

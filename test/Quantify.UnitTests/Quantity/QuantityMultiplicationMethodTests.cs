@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Quantify.Test.Assets;
 using Quantify.UnitTests.TestQuantities;
 
 namespace Quantify.UnitTests.Quantity
@@ -8,16 +7,6 @@ namespace Quantify.UnitTests.Quantity
     [TestClass]
     public class QuantityMultiplicationMethodTests
     {
-        [TestMethod]
-        public void WHEN_Multiplying_Value_WHILE_Value_Null_THEN_ThrowException()
-        {
-            // Arrange
-            var quantity = StringValueStringUnitQuantityBuilder.NewInstance().Build();
-
-            // Act & Assert
-            ExceptionHelpers.ExpectArgumentNullException("multiplier", () => quantity.MultiplyWith(null as string));
-        }
-
         [TestMethod]
         public void WHEN_Multiplying_WHILE_Input_Short_THEN_ReturnNewQuantityWithProduct()
         {

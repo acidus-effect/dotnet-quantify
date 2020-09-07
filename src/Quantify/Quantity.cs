@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace Quantify
 {
@@ -61,9 +60,11 @@ namespace Quantify
             this.valueConverter = valueConverter ?? throw new ArgumentNullException(nameof(valueConverter));
         }
 
-        private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
-        private TQuantity CreateInstance(TValue value, TUnit unit) => (TQuantity)Activator.CreateInstance(typeof(TQuantity), BindingFlags.Instance | BindingFlags.NonPublic, null, new object[] { value, unit, unitRepository, valueCalculator, valueConverter }, null);
+        protected abstract TQuantity CreateInstance(TValue value, TUnit unit, UnitRepository<TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, ValueConverter<TValue, TUnit> valueConverter);
 
+        private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
+        private TQuantity CreateInstance(TValue value, TUnit unit) => CreateInstance(value, unit, unitRepository, valueCalculator, valueConverter);
+        
         /// <inheritdoc />
         public override int GetHashCode()
         {

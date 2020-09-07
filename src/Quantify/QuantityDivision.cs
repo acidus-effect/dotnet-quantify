@@ -9,21 +9,6 @@ namespace Quantify
         /// </summary>
         /// <param name="divisor">The divisor part in the calculation.</param>
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
-        /// <exception cref="ArgumentNullException"><paramref name="divisor"/> is <code>null</code>.</exception>
-        public virtual TQuantity DivideBy(TValue divisor)
-        {
-            if (divisor == null)
-                throw new ArgumentNullException(nameof(divisor));
-
-            var quotient = valueCalculator.Divide(Value, divisor);
-            return CreateInstance(quotient);
-        }
-
-        /// <summary>
-        /// Divide the value of the current quantity with a given value.
-        /// </summary>
-        /// <param name="divisor">The divisor part in the calculation.</param>
-        /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(short divisor)
         {
             var quotient = valueCalculator.Divide(Value, divisor);

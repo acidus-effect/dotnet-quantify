@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Quantify
 {
     /// <summary>
     /// Exception thrown to indicate that an inappropriate type argument was used for a type parameter to a generic type or method.
     /// </summary>
-    [Serializable]
     public class GenericArgumentException : Exception
     {
         private const string DefaultMessage = "A generic argument is invalid.";
@@ -46,16 +44,6 @@ namespace Quantify
         {
             ArgumentName = argumentName;
             ArgumentType = argumentType;
-        }
-
-        /// <summary>
-        /// Constructor provided for serialization purposes.
-        /// </summary>
-        /// <param name="info">Serialization information</param>
-        /// <param name="context">Context</param>
-        protected GenericArgumentException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
         }
     }
 }
