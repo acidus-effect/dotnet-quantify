@@ -64,7 +64,7 @@ namespace Quantify
 
         private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
         private TQuantity CreateInstance(TValue value, TUnit unit) => CreateInstance(value, unit, unitRepository, valueCalculator, valueConverter);
-        
+
         /// <inheritdoc />
         public override int GetHashCode()
         {

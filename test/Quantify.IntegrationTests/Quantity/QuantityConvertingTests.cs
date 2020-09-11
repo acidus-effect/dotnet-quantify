@@ -16,7 +16,7 @@ namespace Quantify.IntegrationTests.Quantity
             var expectedException = new UriFormatException();
 
             var unitRepositoryMock = new Mock<UnitRepository<string>>();
-            unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitConversionValue(It.IsAny<string>())).Throws(expectedException);
+            unitRepositoryMock.Setup(unitRepository => unitRepository.GetUnitValueInBaseUnits(It.IsAny<string>())).Throws(expectedException);
 
             var quantity = new TestQuantity(42, TestData.Centimetre, unitRepositoryMock.Object);
 
@@ -31,7 +31,7 @@ namespace Quantify.IntegrationTests.Quantity
             var quantity = TestQuantity.Create(2000, TestData.Metre);
 
             var expectedUnit = TestData.Kilometre;
-            var expectedValue = quantity.Value / TestData.KilometreUnitValue;
+            var expectedValue = 2;
 
             // Act
             var convertedQuantity = quantity.ToUnit(expectedUnit);

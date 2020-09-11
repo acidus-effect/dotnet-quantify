@@ -9,7 +9,23 @@ namespace Quantify.UnitTests.Quantity
     public partial class QuantityInstantiationTests
     {
         [TestMethod]
-        public void WHEN_Instantiating_WHILE_ArgumentsAreValid_THEN_CreateInstance()
+        public void WHEN_Instantiating_Constructor1_WHILE_ArgumentsAreValid_THEN_CreateInstance()
+        {
+            // Arrange
+            const double expectedValue = 1.547;
+            const string expectedUnit = "Hello";
+            var unitRepository = new Mock<UnitRepository<string>>().Object;
+
+            // Act
+            var quantity = new DoubleValueStringUnitQuantity(expectedValue, expectedUnit, unitRepository);
+
+            // Assert
+            Assert.AreEqual(expectedValue, quantity.Value);
+            Assert.AreEqual(expectedUnit, quantity.Unit);
+        }
+
+        [TestMethod]
+        public void WHEN_Instantiating_Constructor2_WHILE_ArgumentsAreValid_THEN_CreateInstance()
         {
             // Arrange
             const double expectedValue = 1.547;
@@ -27,7 +43,21 @@ namespace Quantify.UnitTests.Quantity
         }
 
         [TestMethod]
-        public void WHEN_Instantiating_WHILE_ArgumentIsNull_THEN_ThrowException()
+        public void WHEN_Instantiating_Constructor1_WHILE_ArgumentIsNull_THEN_ThrowException()
+        {
+            // Arrange
+            const string value = "Hello";
+            const string unit = "World";
+            var unitRepository = new Mock<UnitRepository<string>>().Object;
+
+            // Act & Assert
+            ExceptionHelpers.ExpectArgumentNullException("value", () => new StringValueStringUnitQuantity(null, unit, unitRepository));
+            ExceptionHelpers.ExpectArgumentNullException("unit", () => new StringValueStringUnitQuantity(value, null, unitRepository));
+            ExceptionHelpers.ExpectArgumentNullException("unitRepository", () => new StringValueStringUnitQuantity(value, unit, null));
+        }
+
+        [TestMethod]
+        public void WHEN_Instantiating_Constructor2_WHILE_ArgumentIsNull_THEN_ThrowException()
         {
             // Arrange
             const string value = "Hello";

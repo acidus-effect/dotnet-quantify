@@ -22,8 +22,8 @@ namespace Quantify
             if (sourceUnit.Equals(targetUnit))
                 return value;
 
-            var sourceUnitConversionValue = unitRepository.GetUnitConversionValue(sourceUnit);
-            var targetUnitConversionValue = unitRepository.GetUnitConversionValue(targetUnit);
+            var sourceUnitConversionValue = unitRepository.GetUnitValueInBaseUnits(sourceUnit);
+            var targetUnitConversionValue = unitRepository.GetUnitValueInBaseUnits(targetUnit);
 
             if (sourceUnitConversionValue.HasValue == false)
                 throw new UnitNotFoundException<TUnit>(sourceUnit);
