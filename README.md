@@ -1,4 +1,4 @@
-# Quantify
+# Quantify ![ci branch parameter](https://github.com/acidicsoftware/dotnet-quantify/workflows/Continuous%20Integration/badge.svg?branch=trunk)
 Quantify is a library that makes it easier for you, to work with quantities in your .NET based applications.
 
 Quantify combines a value and a unit into a quantity.
