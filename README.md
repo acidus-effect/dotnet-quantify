@@ -1,6 +1,6 @@
 # Quantify ![ci branch parameter](https://github.com/acidicsoftware/dotnet-quantify/workflows/Continuous%20Integration/badge.svg?branch=trunk)
 
-<img src="assets/quantify-logo.svg" height="180px" width="180px" align="center" />
+<img src="assets/quantify-logo.png" height="180px" width="180px" align="center" />
 
 Quantify is a framework that strives to make it easier, to work with quantities in your .NET based applications.
 
