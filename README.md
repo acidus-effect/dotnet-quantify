@@ -2,7 +2,7 @@
 
 <img src="assets/quantify-logo.png" height="180px" width="180px" align="center" />
 
-Quantify is a framework that strives to make it easier, to work with quantities in your .NET based applications.
+Quantify is a framework that strives to make it easier, to handle quantities with different units in your .NET based applications.
 
 Quantify combines a value and a unit into a quantity.
 
