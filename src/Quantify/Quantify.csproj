@@ -10,7 +10,8 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Quantify;Quantity;Unit;Converting;Converter</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Description>Core library for all Quantify quantities</Description>
+    <Title>Quantify</Title>
+    <Description>The core library for all Quantify quantities</Description>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
     <PackageIcon>quantify-logo.png</PackageIcon>
