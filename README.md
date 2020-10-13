@@ -130,6 +130,5 @@ The interface defines two methods. Both methods must return the unit value in ba
 
 `GetUnitValueInBaseUnits` returns the unit value in base units as a `double`. This is for use in calculations where performance is favored above precision. The opposite is true for `GetPreciseUnitValueInBaseUnits`. This method return the unit value in base units as a `decimal`. This is for use in calculations where precision is favored above performance.
 
-*Quantify is Copyright © 2020 Michel Gammelgaard, Contributors All rights reserved - Provided under the [MIT license](LICENSE)*
-
-*The flask icon is Copyright © 2020 Michel Gammelgaard All rights reserved*
+*© Copyright 2020 Michel Gammelgaard. All rights reserved. Provided under the [MIT license](LICENSE).*
+*Flask disk icon by Michel Gammelgaard. © Copyright 2020 Michel Gammelgaard. All rights reserved.*
