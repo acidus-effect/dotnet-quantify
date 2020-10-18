@@ -11,8 +11,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Title>Quantify</Title>
     <Description>The core library for all Quantify quantities</Description>
-    <PackageProjectUrl></PackageProjectUrl>
-    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
     <PackageIcon>quantify-logo.png</PackageIcon>
   </PropertyGroup>
   
