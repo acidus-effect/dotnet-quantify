@@ -15,7 +15,7 @@ namespace Quantify
             if (termQuantity == null)
                 throw new ArgumentNullException(nameof(termQuantity));
 
-            var convertedTermQuantityValue = valueConverter.ConvertValueToUnit(termQuantity.Value, termQuantity.Unit, Unit);
+            var convertedTermQuantityValue = _valueConverter.ConvertValueToUnit(termQuantity.Value, termQuantity.Unit, Unit);
             return Add(convertedTermQuantityValue);
         }
 
@@ -30,7 +30,7 @@ namespace Quantify
             if (term == null)
                 throw new ArgumentNullException(nameof(term));
 
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -41,7 +41,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(short term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -52,7 +52,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(ushort term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -63,7 +63,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(int term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -74,7 +74,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(uint term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -85,7 +85,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(long term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -96,7 +96,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(ulong term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -107,7 +107,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(double term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -118,7 +118,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(decimal term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 
@@ -129,7 +129,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Add(float term)
         {
-            var sum = valueCalculator.Add(Value, term);
+            var sum = _valueCalculator.Add(Value, term);
             return CreateInstance(sum);
         }
 

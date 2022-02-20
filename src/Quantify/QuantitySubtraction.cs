@@ -15,7 +15,7 @@ namespace Quantify
             if (subtrahendQuantity == null)
                 throw new ArgumentNullException(nameof(subtrahendQuantity));
 
-            var convertedSubtrahendQuantityValue = valueConverter.ConvertValueToUnit(subtrahendQuantity.Value, subtrahendQuantity.Unit, Unit);
+            var convertedSubtrahendQuantityValue = _valueConverter.ConvertValueToUnit(subtrahendQuantity.Value, subtrahendQuantity.Unit, Unit);
             return Subtract(convertedSubtrahendQuantityValue);
         }
 
@@ -30,7 +30,7 @@ namespace Quantify
             if (subtrahend == null)
                 throw new ArgumentNullException(nameof(subtrahend));
 
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -41,7 +41,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(short subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -52,7 +52,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(ushort subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -63,7 +63,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(int subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -74,7 +74,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(uint subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -85,7 +85,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(long subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -96,7 +96,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(ulong subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -107,7 +107,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(double subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -118,7 +118,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(decimal subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 
@@ -129,7 +129,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result of the calculation.</returns>
         public virtual TQuantity Subtract(float subtrahend)
         {
-            var difference = valueCalculator.Subtract(Value, subtrahend);
+            var difference = _valueCalculator.Subtract(Value, subtrahend);
             return CreateInstance(difference);
         }
 

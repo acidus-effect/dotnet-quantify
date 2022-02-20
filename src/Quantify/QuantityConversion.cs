@@ -21,7 +21,7 @@ namespace Quantify
             if (Unit.Equals(targetUnit))
                 return this as TQuantity;
 
-            var convertedValue = valueConverter.ConvertValueToUnit(Value, Unit, targetUnit);
+            var convertedValue = _valueConverter.ConvertValueToUnit(Value, Unit, targetUnit);
             return CreateInstance(convertedValue, targetUnit);
         }
     }

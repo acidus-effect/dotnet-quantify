@@ -11,7 +11,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(short divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -22,7 +22,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(ushort divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -33,7 +33,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(int divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -44,7 +44,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(uint divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -55,7 +55,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(long divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -66,7 +66,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(ulong divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -77,7 +77,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(double divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -88,7 +88,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(decimal divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 
@@ -99,7 +99,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity DivideBy(float divisor)
         {
-            var quotient = valueCalculator.Divide(Value, divisor);
+            var quotient = _valueCalculator.Divide(Value, divisor);
             return CreateInstance(quotient);
         }
 

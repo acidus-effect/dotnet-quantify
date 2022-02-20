@@ -11,7 +11,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(short multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -22,7 +22,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(ushort multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -33,7 +33,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(int multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -44,7 +44,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(uint multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -55,7 +55,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(long multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -66,7 +66,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(ulong multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -77,7 +77,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(double multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -88,7 +88,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(decimal multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 
@@ -99,7 +99,7 @@ namespace Quantify
         /// <returns>A <see cref="TQuantity"/> with the result in the calculation.</returns>
         public virtual TQuantity MultiplyWith(float multiplier)
         {
-            var product = valueCalculator.Multiply(Value, multiplier);
+            var product = _valueCalculator.Multiply(Value, multiplier);
             return CreateInstance(product);
         }
 

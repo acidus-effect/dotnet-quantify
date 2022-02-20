@@ -24,9 +24,9 @@ namespace Quantify
         /// </summary>
         public TUnit Unit { get; }
 
-        private readonly UnitRepository<TUnit> unitRepository;
-        private readonly ValueCalculator<TValue> valueCalculator;
-        private readonly ValueConverter<TValue, TUnit> valueConverter;
+        private readonly UnitRepository<TUnit> _unitRepository;
+        private readonly ValueCalculator<TValue> _valueCalculator;
+        private readonly ValueConverter<TValue, TUnit> _valueConverter;
 
         protected Quantity(TValue value, TUnit unit, UnitRepository<TUnit> unitRepository, ValueCalculator<TValue> valueCalculator = null, ValueConverter<TValue, TUnit> valueConverter = null)
         {
@@ -39,31 +39,15 @@ namespace Quantify
             Value = value;
             Unit = unit;
 
-            this.unitRepository = unitRepository ?? throw new ArgumentNullException(nameof(unitRepository));
-            this.valueCalculator = valueCalculator ?? ValueCalculatorFactory.Create<TValue>();
-            this.valueConverter = valueConverter ?? new ValueConverterFactory<TValue, TUnit>(this.unitRepository, this.valueCalculator).Create();
+            _unitRepository = unitRepository ?? throw new ArgumentNullException(nameof(unitRepository));
+            _valueCalculator = valueCalculator ?? ValueCalculatorFactory.Create<TValue>();
+            _valueConverter = valueConverter ?? new ValueConverterFactory<TValue, TUnit>(_unitRepository, _valueCalculator).Create();
         }
-
-        // protected Quantity(TValue value, TUnit unit, UnitRepository<TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, ValueConverter<TValue, TUnit> valueConverter)
-        // {
-        //     if (value == null)
-        //         throw new ArgumentNullException(nameof(value));
-        //
-        //     if (unit == null)
-        //         throw new ArgumentNullException(nameof(unit));
-        //
-        //     Value = value;
-        //     Unit = unit;
-        //
-        //     this.unitRepository = unitRepository ?? throw new ArgumentNullException(nameof(unitRepository));
-        //     this.valueCalculator = valueCalculator ?? throw new ArgumentNullException(nameof(valueCalculator));
-        //     this.valueConverter = valueConverter ?? throw new ArgumentNullException(nameof(valueConverter));
-        // }
 
         protected abstract TQuantity CreateInstance(TValue value, TUnit unit, UnitRepository<TUnit> unitRepository, ValueCalculator<TValue> valueCalculator, ValueConverter<TValue, TUnit> valueConverter);
 
         private TQuantity CreateInstance(TValue value) => CreateInstance(value, Unit);
-        private TQuantity CreateInstance(TValue value, TUnit unit) => CreateInstance(value, unit, unitRepository, valueCalculator, valueConverter);
+        private TQuantity CreateInstance(TValue value, TUnit unit) => CreateInstance(value, unit, _unitRepository, _valueCalculator, _valueConverter);
 
         /// <inheritdoc />
         public override int GetHashCode()
