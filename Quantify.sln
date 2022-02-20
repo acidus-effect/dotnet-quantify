@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify", "src\Quantify\Quantify.csproj", "{A1CDF10C-9E3A-4A61-ACEF-919855FFE244}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify.UnitTests", "test\Quantify.UnitTests\Quantify.UnitTests.csproj", "{01454DEC-13B7-4E05-8F2D-CD5B8324C725}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify.Test.UnitTest", "test\Quantify.Test.UnitTest\Quantify.Test.UnitTest.csproj", "{01454DEC-13B7-4E05-8F2D-CD5B8324C725}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E3BF242-F646-48F5-A33D-CBB67179FB83}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Test.runsettings = Test.runsettings
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify.IntegrationTests", "test\Quantify.IntegrationTests\Quantify.IntegrationTests.csproj", "{F918D623-5B97-40BE-940A-E0C3C654A6BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify.Test.IntegrationTest", "test\Quantify.Test.IntegrationTest\Quantify.Test.IntegrationTest.csproj", "{F918D623-5B97-40BE-940A-E0C3C654A6BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quantify.Test.Assets", "test\Quantify.Test.Assets\Quantify.Test.Assets.csproj", "{F8EF4501-D4CE-4AF0-B480-2A8AEB8511AD}"
 EndProject
