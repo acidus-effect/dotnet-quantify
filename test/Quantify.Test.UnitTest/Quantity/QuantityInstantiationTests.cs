@@ -55,23 +55,5 @@ namespace Quantify.Test.UnitTest.Quantity
             ExceptionHelpers.ExpectArgumentNullException("unit", () => new StringValueStringUnitQuantity(value, null, unitRepository));
             ExceptionHelpers.ExpectArgumentNullException("unitRepository", () => new StringValueStringUnitQuantity(value, unit, null));
         }
-
-        [TestMethod]
-        public void WHEN_Instantiating_Constructor2_WHILE_ArgumentIsNull_THEN_ThrowException()
-        {
-            // Arrange
-            const string value = "Hello";
-            const string unit = "World";
-            var unitRepository = new Mock<UnitRepository<string>>().Object;
-            var valueCalculator = new Mock<ValueCalculator<string>>().Object;
-            var valueConverter = new Mock<ValueConverter<string, string>>().Object;
-
-            // Act & Assert
-            ExceptionHelpers.ExpectArgumentNullException("value", () => new StringValueStringUnitQuantity(null, unit, unitRepository, valueCalculator, valueConverter));
-            ExceptionHelpers.ExpectArgumentNullException("unit", () => new StringValueStringUnitQuantity(value, null, unitRepository, valueCalculator, valueConverter));
-            ExceptionHelpers.ExpectArgumentNullException("unitRepository", () => new StringValueStringUnitQuantity(value, unit, null, valueCalculator, valueConverter));
-            ExceptionHelpers.ExpectArgumentNullException("valueCalculator", () => new StringValueStringUnitQuantity(value, unit, unitRepository, null, valueConverter));
-            ExceptionHelpers.ExpectArgumentNullException("valueConverter", () => new StringValueStringUnitQuantity(value, unit, unitRepository, valueCalculator, null));
-        }
     }
 }
